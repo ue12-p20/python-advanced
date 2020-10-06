@@ -10,7 +10,7 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-notebookname: primer programmation Python
+notebookname: des jeux en Python
 rise:
   autolaunch: true
   slideNumber: c/t
@@ -30,24 +30,23 @@ version: '1.0'
 
 # UE12 - Python avancé
 
+aujourd'hui nous allons coder un petit jeu (ou plus, pour les aguerris)
+
 +++
 
-## coder des petits jeux
+## objectifs
 
-+++ {"tags": []}
-
-les objectifs d'aujourd'hui
+ce qu'on veut faire aujourd'hui principalement, c'est :
 
 * vérifier les installations de tout le monde
 * pratiquer en vraie grandeur la boucle 
   * écriture de code
   * lancement de programme
-* utilisation d'une librairie
-* écriture de code simple
+* de préférence avec
+  * vs-code pour l'édition de programme
+  * le terminal pour le lancement du programme  
+    (celui-ci pouvant être le terminal intégré de vs-code)
+* installation et utilisation d'une librairie
+* écriture de **code simple**
   * pas nécessairement besoin de structures de données compliquées
-
-+++
-
-## support pour le TP
-
-https://github.com/ue12/python-advanced-games
+* en plus c'est ludique !

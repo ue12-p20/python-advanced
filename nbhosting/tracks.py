@@ -2,7 +2,7 @@
 
 from nbhosting.courses import (
     Track, Section, Notebook,
-    notebooks_by_pattern, track_by_directory)
+    notebooks_by_patterns, track_by_directory)
 
 def tracks(coursedir):
     """
@@ -14,16 +14,24 @@ def tracks(coursedir):
     """
 
     track_specs = [
-        ('Python avancé', 'Python avancé', 'python',
-         [ ('jeux', 'notebooks/1-*.md'), ]),
-        ]
+        ('Python avancé', 'Python avancé', 'python', [
+            ('1/9: jeux', 'notebooks/1-*.md', 'tps/games/README.md'),
+            ('2/9: types de base', 'notebooks/2-*.md'),
+            ('3/9: itérations', 'notebooks/3-*.md'),
+            ('4/9: fonctions', 'notebooks/4-*.md'),
+            ('5/9: ???', 'notebooks/5-*.md'),
+            ('6/9: ???', 'notebooks/6-*.md'),
+            ('7/9: ???', 'notebooks/7-*.md'),
+            ('8/9: ???', 'notebooks/8-*.md'),
+            ('9/9: ???', 'notebooks/9-*.md'),
+        ])]
 
     return [Track(coursedir,
                   [Section(coursedir=coursedir,
                            name=section_name,
-                           notebooks=notebooks_by_pattern(
-                               coursedir, pattern))
-                   for section_name, pattern in section_specs],
+                           notebooks=notebooks_by_patterns(
+                               coursedir, patterns))
+                   for section_name, *patterns in section_specs],
                   name=track_name,
                   description=track_description,
                   id=track_id)
