@@ -120,9 +120,9 @@ Nous allons commencer par construire notre plateau de jeu ainsi:
 
 Pour valider le bon fonctionnement de ce plateau de jeu, écrivez un programme qui dessine un grille:
 
-![](docs/damier.png)
+![](media/damier.png)
 
-pour cela, vous pouvez utiliser la méthode [`pg.draw.rect()`](https://www.pygame.org/docs/ref/draw.html#pygame.draw.rect) qui dessine un rectangle:
+pour cela, vous pouvez utiliser la méthode [`pg.draw.rect()`](https://www.pygame.org/media/ref/draw.html#pygame.draw.rect) qui dessine un rectangle:
 
 ```python
 # les coordonnées de rectangle que l'on dessine
@@ -150,7 +150,7 @@ serpent = [
 
 pour obtenir un schéma comme suit:
 
-![](docs/serpent.png)
+![](media/serpent.png)
 
 Ensuite, nous allons faire bouger le serpent.
 C'est en fait très simple:
@@ -164,7 +164,7 @@ Un fois que le serpent bouge, ajouter les commandes pour de déplacer dans les 4
 
 **BONUS** faites en sorte que le serpent ne puisse pas faire "demi tour"
 
-  ![](docs/serpent-bouge.gif)
+  ![](media/serpent-bouge.gif)
   
 Il faut maintenant faire manger notre serpent.
 On va procéder comme suit:
@@ -176,7 +176,7 @@ On va procéder comme suit:
 - on génère un "fruit", dans une position aléatoire
 - quand la tête du serpent mange le fruit, on place un nouveau fruit à une position aléatoire et on alonge le serpent d'une case
 
-![](docs/manger.gif)
+![](media/manger.gif)
 
 Il nous reste deux petits changements pour avoir un serpent complètement fonctionnel:
 
@@ -188,7 +188,7 @@ Il nous reste deux petits changements pour avoir un serpent complètement foncti
   pg.display.set_caption(f"Score: {score}")
   ```
   
-  ![](docs/score.png)
+  ![](media/score.png)
   
 ## Un second jeu: le flappy bird
   
@@ -245,7 +245,7 @@ Pour dessiner une image en pygame, deux actions sont nécessaires:
 
 vous devriez avoir un rendu semblable à celui-ci:
 
-![](docs/oiseau.png)
+![](media/oiseau.png)
 
 Il faut maintenant faire bouger notre oiseau.
 Contrairement à l'exemple précédent, nous allons devoir utilisé un mouvement "continu", c'est à dire caractérisé par:
@@ -266,7 +266,7 @@ du coup l'algorithme a réaliser est le suivant:
 
 Vous devriez obtenir quelque chose comme:
 
-![](docs/tombe.gif)
+![](media/tombe.gif)
 
 _il vous revient d'adapter les différentes constantes pour avoir une "sensation" de jeu agréable_
 
@@ -276,4 +276,4 @@ L'étape suivant est de définir une interraction avec l'oiseau. Le fonctionneme
 
 Le résultat doit être semblable à:
 
-![](docs/hophop.gif)
+![](media/hophop.gif)
