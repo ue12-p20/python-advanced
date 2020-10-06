@@ -9,7 +9,7 @@ Gardez ainsi en tête que votre objectif est de réaliser un **programme qui mar
 
 ### Prérequis
 
-_Ce qui suit suppose que vous avez installé Python avec `conda` et que vous avez un terminal fonctionnel sur votre ordinateur._
+_Ce qui suit suppose que vous avez installé Python avec `conda` et que vous avez un terminal `bash` fonctionnel sur votre ordinateur._
 
 Commencez par créer et activer un environnement dédié au TP:
 
@@ -20,6 +20,12 @@ Commencez par créer et activer un environnement dédié au TP:
 (base) $ conda activate snake
 # votre terminal doit indiquer le nom d'environnement:
 (snake) $
+```
+
+**NOTE** Si vous ne voyez pas, comme montré ici, le `(snake)` affiché dans le prompt de bash pour vous rappeler en permanence dans quel environnement on se trouve, il vous faut taper ceci avant de relancer un terminal
+
+```sh
+$ conda init bash
 ```
 
 Installez ensuite la dernière version du module `pygame` avec `pip`:
@@ -36,13 +42,17 @@ Pour tester votre installation, vous pouvez lancer le programme d'exemple comme 
 
 ### Code de démarrage
 
-Un premier code très simple est le suivant, écrivez-le dans un fichier `snake.py` et lancez-le avec la commande `python`:
+Un premier code très simple est le suivant, écrivez-le dans un fichier `snake.py` et lancez-le avec la commande `python` :
 
 **ATTENTION** je vous recommande de **ne pas essayer d'exécuter ce code depuis un notebook** :
-ni depuis nbhosting, ça ne marchera pas du tout, car `pygame` n'y est pas installé;
-ni depuis votre ordinateur personnel, car vous allez rencontrer des problèmes mystérieux de kernel qui meurt, si vous essayez.
+
+* ni depuis nbhosting, ça ne marchera pas du tout, car `pygame` n'y est pas installé;
+* ni depuis votre ordinateur personnel, car vous allez rencontrer des problèmes mystérieux de kernel qui meurt, si vous essayez.
 
 ```python
+# v0 : on repeint l'écran à une période de 1 seconde
+# et on a du mal à sortir du programme
+
 import pygame as pg
 from random import randint
 
@@ -66,8 +76,6 @@ while True:
 
     # enfin on met à jour la fenêtre avec tous les changements
     pg.display.update()
-
-pg.quit()
 ```
 
 Vous pouvez désormais exécuter le programme avec:
@@ -76,11 +84,32 @@ Vous pouvez désormais exécuter le programme avec:
 (snake) $ python snake.py
 ```
 
-**Attention** : vous verrez que vous ne pouvez pas _fermer_ la fenêtre normalement, pour quitter votre programme vous devez saisie **CONTROL+C** dans le terminal.
+**Attention** : vous verrez que vous ne pouvez pas _fermer_ la fenêtre normalement, pour quitter votre programme vous devez saisir **CONTROL+C** dans le terminal.
+
+### rappels vs-code
+
+**Rappel #1** : il est **fortement recommandé** d'installer l'extension de vs-code pour Python
+
+**Rappel #2** : puisqu'on a créé un environnement virtuel, il est opportun d'indiquer à vs-code qu'il faut l'utiliser (plutôt que `base`)  
+pour cela cliquer dans la bannière du bas la zone qui indique le Python courant
+
+**Rappel #3** : pour lancer le programme directement depuis vs-code :
+
+- ouvrir la palette
+  * `⇧ ⌘ P` Shift-Command-P (mac)
+  * `⇧ ⌃ P` Shift-Control-P (windows)
+- chercher la fonction *Toggle Integrated Terminal*
+  - mémoriser le raccourci clavier
+  - qui est Control-backquote sur Mac (le backquote c'est `)
+
+### Continuons
 
 Afin d'avoir un comportement plus "normal", nous devons instruire Pygame en lui disant comment réagir aux clicks sur le clavier ou sur la fenêtre:
 
 ```python
+# v1 : pareil mais au moins on peut sortir du programme
+# avec la touche 'q', ou avec la souris en fermant la fenêtre
+
 import pygame as pg
 from random import randint
 
@@ -119,8 +148,9 @@ pg.quit()
 ### À vous de jouer
 
 Nous allons commencer par construire notre plateau de jeu ainsi:
-- le plateau de jeu est découpe en 30x30 cases
-- chaque case fait 30 pixels de côté
+
+- le plateau de jeu est découpé en 30x30 cases
+- chaque case fait 20 pixels de côté
 
 Pour valider le bon fonctionnement de ce plateau de jeu, écrivez un programme qui dessine un grille:
 
@@ -137,7 +167,7 @@ height = 30 # hauteur du rectangle en pixels
 rect = pg.Rect(x, y, width, height)
 # appel à la méthode draw.rect()
 color = (255, 0, 0) # couleur rouge
-pg.display.rect(screen, color, rect)
+pg.draw.rect(screen, color, rect)
 ```
 
 L'étape suivante est de dessiner le serpent. Le serpent est simplement une suite de blocks de couleurs.
@@ -145,7 +175,7 @@ On veut dessiner le serpent aux coordonnées suivantes:
 
 ```python
 # les coordonnées du corps du serpent
-serpent = [
+snake = [
     (10, 15),
     (11, 15),
     (12, 15),
