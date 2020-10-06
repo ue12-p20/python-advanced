@@ -11,10 +11,10 @@ Gardez ainsi en tête que votre objectif est de réaliser un **programme qui mar
 
 _Ce qui suit suppose que vous avez installé Python avec `conda` et que vous avez un terminal fonctionnel sur votre ordinateur._
 
-Commencez par créer et activer une environnement dédié au TP:
+Commencez par créer et activer un environnement dédié au TP:
 
 ```sh
-# on commence par créer un envisonnement "snake"
+# on commence par créer un environnement "snake"
 (base) $ conda create -n snake pip
 # puis on l'active
 (base) $ conda activate snake
@@ -36,9 +36,13 @@ Pour tester votre installation, vous pouvez lancer le programme d'exemple comme 
 
 ### Code de démarrage
 
-Un permier code très simple est le suivant, écrivez-le dans un fichier `snake.py` et lancez-le avec la commande `python`:
+Un premier code très simple est le suivant, écrivez-le dans un fichier `snake.py` et lancez-le avec la commande `python`:
 
 ```sh
+**ATTENTION** je vous recommande de **ne pas essayer d'exécuter ce code depuis un notebook** :  
+ni depuis nbhosting, ça ne marchera pas du tout, car `pygame` n'y est pas installé;  
+ni depuis votre ordinateur personnel, car vous allez rencontrer des problèmes mystérieux de kernel qui meurt, si vous essayez.
+
 import pygame as pg
 from random import randint
 
@@ -72,7 +76,7 @@ Vous pouvez désormais exécuter le programme avec:
 $ python snake.py
 ```
 
-Attention: vous verrez que vous ne pouvez pas _fermer_ la fenêtre normalement, pour quitter votre programme vous devez saisie **CONTROL+C** dans le terminal.
+**Attention** : vous verrez que vous ne pouvez pas _fermer_ la fenêtre normalement, pour quitter votre programme vous devez saisie **CONTROL+C** dans le terminal.
 
 Afin d'avoir un comportement plus "normal", nous devons instruire Pygame en lui disant comment réagir aux clicks sur le clavier ou sur la fenêtre:
 
