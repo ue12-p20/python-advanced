@@ -31,18 +31,18 @@ Installez ensuite la dernière version du module `pygame` avec `pip`:
 Pour tester votre installation, vous pouvez lancer le programme d'exemple comme suit:
 
 ```sh
-(snake) $ python -m pygame.examples.aliens 
+(snake) $ python -m pygame.examples.aliens
 ```
 
 ### Code de démarrage
 
 Un premier code très simple est le suivant, écrivez-le dans un fichier `snake.py` et lancez-le avec la commande `python`:
 
-```sh
-**ATTENTION** je vous recommande de **ne pas essayer d'exécuter ce code depuis un notebook** :  
-ni depuis nbhosting, ça ne marchera pas du tout, car `pygame` n'y est pas installé;  
+**ATTENTION** je vous recommande de **ne pas essayer d'exécuter ce code depuis un notebook** :
+ni depuis nbhosting, ça ne marchera pas du tout, car `pygame` n'y est pas installé;
 ni depuis votre ordinateur personnel, car vous allez rencontrer des problèmes mystérieux de kernel qui meurt, si vous essayez.
 
+```python
 import pygame as pg
 from random import randint
 
@@ -72,8 +72,8 @@ pg.quit()
 
 Vous pouvez désormais exécuter le programme avec:
 
-```shell script
-$ python snake.py
+```sh
+(snake) $ python snake.py
 ```
 
 **Attention** : vous verrez que vous ne pouvez pas _fermer_ la fenêtre normalement, pour quitter votre programme vous devez saisie **CONTROL+C** dans le terminal.
@@ -92,7 +92,7 @@ clock = pg.time.Clock()
 running = True
 while running:
     clock.tick(1)
-    
+
     # on itère sur tous les évênements qui ont eu lieu depuis le précédent appel
     # ici donc tous les évènements survenus durant la seconde précédente
     for event in pg.event.get():
@@ -169,33 +169,34 @@ Un fois que le serpent bouge, ajouter les commandes pour de déplacer dans les 4
 **BONUS** faites en sorte que le serpent ne puisse pas faire "demi tour"
 
   ![](media/serpent-bouge.gif)
-  
+
 Il faut maintenant faire manger notre serpent.
 On va procéder comme suit:
-- on va stocker la position du serpent dans une variable:
+
+- on a toujours la position du serpent dans une variable `serpent` :
+- on génère un "fruit", dans une position aléatoire
   ```python
-  # exemple de fruit en position 10,10 sur le plateau
+  # exemple de fruit en position 10, 10 sur le plateau
   fruit = (10, 10)
   ```
-- on génère un "fruit", dans une position aléatoire
-- quand la tête du serpent mange le fruit, on place un nouveau fruit à une position aléatoire et on alonge le serpent d'une case
+- quand la tête du serpent mange le fruit, on place un nouveau fruit à une position aléatoire et on allonge le serpent d'une case
 
 ![](media/manger.gif)
 
 Il nous reste deux petits changements pour avoir un serpent complètement fonctionnel:
 
-- tout d'abord il faut détecter si le serpent se mort la queue, ce qui est une condition d'échec
-- enfin on peut afficher le score. 
+- tout d'abord il faut détecter si le serpent se mord la queue, ce qui est une condition d'échec
+- enfin on peut afficher le score.
   La façon la plus simple de procéder est de changer le titre de la fenêtre, avec la fonction `set_caption()`:
   ```python
   score = 0
   pg.display.set_caption(f"Score: {score}")
   ```
-  
+
   ![](media/score.png)
-  
+
 ## Un second jeu: le flappy bird
-  
+
 Ce second exemple va nous permettre de nous confronter à un cas plus compliqué de jeu vidéo:
 - l'espace de jeu n'est plus "discret": on n'avance plus case après case mais "continuement" à une vitesse donnée
 - on va afficher des images et non des simples carrés de couleur
@@ -239,7 +240,7 @@ Pour dessiner une image en pygame, deux actions sont nécessaires:
 
 - on doit charger l'image depuis un fichier, par ex.
   ```python
-  image = pg.image.load("chemin/vers/image.png")  
+  image = pg.image.load("chemin/vers/image.png")
   ```
 - puis on l'affiche, en donnant les coordonnées de son coin supérieur gauche:
   ```python
