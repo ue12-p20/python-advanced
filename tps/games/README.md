@@ -86,6 +86,7 @@ Vous pouvez désormais exécuter le programme avec:
 
 **Attention** : vous verrez que vous ne pouvez pas _fermer_ la fenêtre normalement, pour quitter votre programme vous devez saisir **CONTROL+C** dans le terminal.
 
+
 ### rappels vs-code
 
 **Rappel #1** : il est **fortement recommandé** d'installer l'extension de vs-code pour Python
@@ -102,9 +103,11 @@ pour cela cliquer dans la bannière du bas la zone qui indique le Python courant
   - mémoriser le raccourci clavier
   - qui est Control-backquote sur Mac (le backquote c'est `)
 
+
 ### Un petit détail
 
 Il faut savoir que c'est l'appel à `pg.display.update()` qui produit réellement l'affichage; en fait, tous les autres calculs se produisent en mémoire (c'est très rapide), mais à un moment il faut bien parler à la carte vidéo pour l'affichage, et ça c'est beaucoup plus lent (+ieurs centaines de fois plus lent); du coup même si ce `display` reste dans l'ordre de grandeur de la milliseconde, il faut s'efforcer, pour une bonne fluidité du jeu, de n'appeler `update()` que le minimum, pour nous ici une fois par itération de la boucle.
+
 
 ### Continuons
 
@@ -193,6 +196,7 @@ pour obtenir un schéma comme suit; disons pour fixer les idées que dans ce cas
 
 ![](media/serpent.png)
 
+
 ### Un serpent qui bouge
 
 Ensuite, nous allons faire bouger le serpent.
@@ -210,6 +214,7 @@ Aussi on peut commencer à envisager d'accélérer un peu le jeu à ce stade...
 **BONUS** faites en sorte que le serpent ne puisse pas faire "demi tour"
 
   ![](media/serpent-bouge.gif)
+
 
 ### Le fruit
 
@@ -256,18 +261,23 @@ Pour les rapides, je vous invite à aborder les sujets suivants :
 
 Mais en fait on triche complètement; que se passerait-il si on avait par exemple deux objets à animer à des vitesses différentes ?
 
-Modifier votre code pour pouvoir paramétrer deux fréquences séparément :
+Modifiez votre code pour pouvoir paramétrer deux fréquences séparément :
 
 * la fréquence de rafraichissement de l'écran
 * la fréquence de déplacement du serpent (en case / seconde)
+
 
 ### Ligne de commande
 
 On aimerait pouvoir passer sur la ligne de commande les paramètres du jeu; par exemple, le nombre de cases du tableau en hauteur et largeur, la taille d'une case en pixels, ...
 
+Indice: cherchez le module `argparse` dans la documentation Python.
+
+
 ### Variables globales
 
 De manière générale, les variables globales sont considérées comme néfastes à la réutilisabilité du code; retouchez votre code pour on essaie de minimiser le nombre de variables globales;
+
 
 ## Un second jeu: le flappy bird
 
@@ -275,6 +285,7 @@ Ce second exemple va nous permettre de nous confronter à un cas plus compliqué
 - l'espace de jeu n'est plus "discret": on n'avance plus case après case mais "continuement" à une vitesse donnée
 - on va afficher des images et non des simples carrés de couleur
 - on va devoir se poser la question de la collision entre l'oiseau et les éléments du décor
+
 
 ### Code de démarrage
 
