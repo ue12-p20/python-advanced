@@ -267,16 +267,16 @@ Modifiez votre code pour pouvoir paramétrer deux fréquences séparément :
 * la fréquence de déplacement du serpent (en case / seconde)
 
 
+### Variables globales
+
+De manière générale, les variables globales sont considérées comme néfastes à la réutilisabilité du code; retouchez votre code pour minimiser le nombre de variables globales.
+
+
 ### Ligne de commande
 
 On aimerait pouvoir passer sur la ligne de commande les paramètres du jeu; par exemple, le nombre de cases du tableau en hauteur et largeur, la taille d'une case en pixels, ...
 
 Indice: cherchez le module `argparse` dans la documentation Python.
-
-
-### Variables globales
-
-De manière générale, les variables globales sont considérées comme néfastes à la réutilisabilité du code; retouchez votre code pour on essaie de minimiser le nombre de variables globales;
 
 
 ## Un second jeu: le flappy bird
@@ -332,6 +332,10 @@ Pour dessiner une image en pygame, deux actions sont nécessaires:
   # cette instruction va écraser ce qui se trouve en (100, 100) avec l'image
   screen.blit(image, (10, 10))
   ```
+  
+les images nécessaires sont disponibles ici
+https://github.com/ue12/python-advanced/tree/main/tps/games/images
+
 
 vous devriez avoir un rendu semblable à celui-ci:
 
