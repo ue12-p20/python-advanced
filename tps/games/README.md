@@ -102,6 +102,10 @@ pour cela cliquer dans la bannière du bas la zone qui indique le Python courant
   - mémoriser le raccourci clavier
   - qui est Control-backquote sur Mac (le backquote c'est `)
 
+### Un petit détail
+
+Il faut savoir que c'est l'appel à `pg.display.update()` qui produit réellement l'affichage; en fait, tous les autres calculs se produisent en mémoire (c'est très rapide), mais à un moment il faut bien parler à la carte vidéo pour l'affichage, et ça c'est beaucoup plus lent (+ieurs centaines de fois plus lent); du coup même si ce `display` reste dans l'ordre de grandeur de la milliseconde, il faut s'efforcer, pour une bonne fluidité du jeu, de n'appeler `update()` que le minimum, pour nous ici une fois par itération de la boucle.
+
 ### Continuons
 
 Afin d'avoir un comportement plus "normal", nous devons instruire Pygame en lui disant comment réagir aux clicks sur le clavier ou sur la fenêtre:
@@ -145,7 +149,7 @@ while running:
 pg.quit()
 ```
 
-### À vous de jouer
+### Le damier
 
 Nous allons commencer par construire notre plateau de jeu ainsi:
 
@@ -170,6 +174,8 @@ color = (255, 0, 0) # couleur rouge
 pg.draw.rect(screen, color, rect)
 ```
 
+### Un serpent fixe
+
 L'étape suivante est de dessiner le serpent. Le serpent est simplement une suite de blocks de couleurs.
 On veut dessiner le serpent aux coordonnées suivantes:
 
@@ -182,9 +188,12 @@ snake = [
 ]
 ```
 
-pour obtenir un schéma comme suit:
+pour obtenir un schéma comme suit; disons pour fixer les idées que dans ce cas de figure
+`(10,15)` est la queue, et `(12, 15)` est la tête (mais c'est totalement arbitraire et pas du tout imposé) :
 
 ![](media/serpent.png)
+
+### Un serpent qui bouge
 
 Ensuite, nous allons faire bouger le serpent.
 C'est en fait très simple:
@@ -194,16 +203,20 @@ C'est en fait très simple:
   ```
 - à chaque itération de la boucle, nous pouvons déplacer le serpent dans cette direction en "ajoutant" ce vecteur à la position de la tête du serpent
 
-Un fois que le serpent bouge, ajouter les commandes pour de déplacer dans les 4 directions, en cliquant sur les flèches
+Une fois que le serpent bouge, ajouter les commandes pour se déplacer dans les 4 directions, en cliquant sur les flèches (par exemple le code renvoyé par la flêche vers le haut est `pg.K_UP`)
+
+Aussi on peut commencer à envisager d'accélérer un peu le jeu à ce stade... 
 
 **BONUS** faites en sorte que le serpent ne puisse pas faire "demi tour"
 
   ![](media/serpent-bouge.gif)
 
+### Le fruit
+
 Il faut maintenant faire manger notre serpent.
 On va procéder comme suit:
 
-- on a toujours la position du serpent dans une variable `serpent` :
+- on a toujours la position du serpent dans une variable `snake` :
 - on génère un "fruit", dans une position aléatoire
   ```python
   # exemple de fruit en position 10, 10 sur le plateau
@@ -212,6 +225,9 @@ On va procéder comme suit:
 - quand la tête du serpent mange le fruit, on place un nouveau fruit à une position aléatoire et on allonge le serpent d'une case
 
 ![](media/manger.gif)
+
+
+### Épilogue
 
 Il nous reste deux petits changements pour avoir un serpent complètement fonctionnel:
 
@@ -223,7 +239,35 @@ Il nous reste deux petits changements pour avoir un serpent complètement foncti
   pg.display.set_caption(f"Score: {score}")
   ```
 
-  ![](media/score.png)
+![](media/score.png)
+
+***
+***
+Fin de la partie obligatoire
+***
+***
+
+Pour les rapides, je vous invite à aborder les sujets suivants :
+
+
+### Asynchronisme
+
+À ce stade nous avons un jeu à une seule vitesse; la boucle principale est entièrement cadencée par le `clock.tick(n)`, et la vitesse du serpent est entièrement fixée par ce moyen-là.
+
+Mais en fait on triche complètement; que se passerait-il si on avait par exemple deux objets à animer à des vitesses différentes ?
+
+Modifier votre code pour pouvoir paramétrer deux fréquences séparément :
+
+* la fréquence de rafraichissement de l'écran
+* la fréquence de déplacement du serpent (en case / seconde)
+
+### Ligne de commande
+
+On aimerait pouvoir passer sur la ligne de commande les paramètres du jeu; par exemple, le nombre de cases du tableau en hauteur et largeur, la taille d'une case en pixels, ...
+
+### Variables globales
+
+De manière générale, les variables globales sont considérées comme néfastes à la réutilisabilité du code; retouchez votre code pour on essaie de minimiser le nombre de variables globales;
 
 ## Un second jeu: le flappy bird
 
