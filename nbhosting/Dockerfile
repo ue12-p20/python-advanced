@@ -8,4 +8,7 @@ FROM nbhosting/minimal-notebook
 RUN true \
  && pip install -U nb-courselevels \
  && jupyter nbextension enable hide_input/main \
+ && pip install rise --pre \
+ && pip install numpy pandas pandas \
+ && apt-get install -y graphviz && pip install graphviz \
  && true

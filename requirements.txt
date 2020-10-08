@@ -6,6 +6,10 @@ ipykernel
 ipywidgets
 nbautoeval
 
+numpy
+pandas
+matplotlib
+
 # jupyter extensions
 #
 #rise
