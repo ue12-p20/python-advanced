@@ -59,7 +59,7 @@ un chaine - de type `str` - est une **séquence immutable**
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## fonctions sur (toutes) les séquences
+## opérations sur (toutes) les séquences
 
 +++ {"cell_style": "split"}
 
@@ -77,7 +77,7 @@ un chaine - de type `str` - est une **séquence immutable**
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### fonctions sur les séquences...
+### opérations sur les séquences...
 
 +++ {"slideshow": {"slide_type": ""}, "cell_style": "split"}
 
@@ -363,7 +363,7 @@ print('on se dit "pourquoi pas"')
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### chaînes de caractères `str`
+## construire une chaîne
 
 ```{code-cell} ipython3
 :cell_style: split

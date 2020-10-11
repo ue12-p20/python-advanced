@@ -37,9 +37,12 @@ version: '1.0'
 ce qu'on veut faire aujourd'hui principalement, c'est :
 
 * on a déjà parcouru les types de base de Python lors du cours d'introduction à Python numérique; aujourd'hui on va approfondir tout cela
-  * nombres
-  * containers
-  * chaines  
-  * fichiers
+  * nombres (19 slides)
+  * containers (45 slides)
+  * chaines (37 slides) 
+  * fichiers (16 slides)
+  
+pour pratiquer tout cela, on fera
 
-* pour pratiquer tout cela, on fera un TP sur des algorithmes simples sur les graphes
+* deux exercices auto-corrigés 
+* un TP sur des algorithmes simples sur les graphes

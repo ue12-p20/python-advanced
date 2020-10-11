@@ -59,6 +59,9 @@ with open('temporaire.txt', 'w') as f:
 ```
 
 ```{code-cell} ipython3
+# on triche un peu pour regarder le contenu
+# du fichier qu'on vient de créer
+
 !cat temporaire.txt
 ```
 
@@ -75,15 +78,17 @@ with open('temporaire.txt', 'w') as f:
 ```{code-cell} ipython3
 :cell_style: split
 
-# lire un fichier texte ligne par ligne
-# on ne peut pas faire plus compact et lisible !
+# lire un fichier texte 
+# ligne par ligne
+# difficile de faire
+# plus compact et lisible !
 
 # remarquez aussi:
 # open() sans le mode ⇔ open('r')
 
 with open('temporaire.txt') as f:
     for line in f:
-        print(f"-- {line}", end='') 
+        print(f"-- {line}", end='')
 ```
 
 ```{code-cell} ipython3
@@ -91,18 +96,26 @@ with open('temporaire.txt') as f:
 
 # si on ne fait rien
 # on obtient 2 fins de ligne
-# i.e. une ligne blanche
+# (i.e. une ligne blanche)
 
 with open('temporaire.txt') as f:
     for line in f:
         print(f"-- {line}") 
 ```
 
+**Précision**
+
+* `print(...)` ajoute une fin de ligne
+* `print(..., end="")` évite cet ajout automatique
+
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ## fichiers texte ou binaire
 
 +++
+
+* parfois utile d'ouvrir un fichier en binaire  
+  par ex. un exécutable, un fichier dans un format propriétaire
 
 * ajouter `'b'` au mode pour ouvrir **en binaire**
   * pas de décodage
@@ -114,9 +127,12 @@ cell_style: center
 slideshow:
   slide_type: slide
 ---
-# j'ai besoin d'un objet bytes
-# rappelez vous la section sur Unicode
+# on part d'une chaine avec des accents
 text = "noël en été\n"
+
+# rappelez vous la section sur Unicode
+# j'ai besoin d'un objet bytes
+# j'encode mon str en un bytes
 binaire = text.encode(encoding="utf-8")
 
 binaire
@@ -157,6 +173,14 @@ slideshow:
 binaire2 == binaire
 ```
 
+```{code-cell} ipython3
+# on aurait pu aussi bien faire
+with open('temporaire.bin') as feed:
+    text2 = feed.read()
+    
+text2 == text
+```
+
 +++ {"slideshow": {"slide_type": "slide"}, "tags": ["level_intermediate"]}
 
 ## le module `pathlib`
@@ -166,11 +190,16 @@ binaire2 == binaire
 ### objectifs
 
 * simplifier la gestion des noms de fichier 
-* pour rendre le code plus concis
-* et donc plus lisible
-* sous-titre: *object-oriented filesystem paths*
-* en remplacement de librairies plus anciennes
-  * `os.path`, `os`, `glob`... 
+  * pour rendre le code plus concis
+  * et donc plus lisible
+  * sous-titre: *object-oriented filesystem paths*
+  
+* capable de 
+  * ouvrir les fichiers
+  * savoir si le fichier existe, si c'est un dossier...
+  * accéder aux métadata (taille, date)
+  * parcourir un dossier par pattern-matching
+  * ...
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
