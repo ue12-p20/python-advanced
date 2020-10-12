@@ -356,7 +356,7 @@ to_graphviz(reach, "neato")
 from dijkstra import reachables1
 
 for s in reach:
-    print(f"en partant de {s} -> {reachables1(reach, s)}")
+    print(f"en partant de {s} → {reachables1(reach, s)}")
 ```
 
 ### la difficulté
@@ -447,7 +447,7 @@ vous pouvez vérifier visuellement en comparant vos résultats avec ceux qu'on a
 
 ```{code-cell} ipython3
 for s in reach:
-    print(f"depuis {s} -> {reachables(reach, s)}")
+    print(f"depuis {s} → {reachables(reach, s)}")
 ```
 
 ```{code-cell} ipython3
@@ -472,7 +472,7 @@ for (s, expected) in G_tests:
     if computed != expected:
         print(f"ERROR found {computed} != {expected}")
     else:
-        print(f"depuis {s} -> {computed}")
+        print(f"depuis {s} → {computed}")
 ```
 
 ## plus court chemin
@@ -594,7 +594,7 @@ adj = G[s]
 # d pour destination
 # w pour weight
 for d, w in adj.items():
-    print(s, '-', w, '->', d)
+    print(s, '-', w, '→', d)
 ```
 
 ```{code-cell} ipython3
@@ -602,7 +602,7 @@ for d, w in adj.items():
 
 for s, adj in G.items():
     for d, w in adj.items():
-        print(f"{s=} -> {d=}")
+        print(f"{s=} → {d=}")
 ```
 
 ```{code-cell} ipython3
