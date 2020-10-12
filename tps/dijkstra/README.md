@@ -447,7 +447,32 @@ vous pouvez vérifier visuellement en comparant vos résultats avec ceux qu'on a
 
 ```{code-cell} ipython3
 for s in reach:
-    print(f"en partant de {s} -> {reachables(reach, s)}")
+    print(f"depuis {s} -> {reachables(reach, s)}")
+```
+
+```{code-cell} ipython3
+# comment écrire un petit test plus informatif
+# sur le premier graphe témoin
+
+# on énumère à la main les sommets à tester 
+# et les résultats attendus
+G_tests = [
+    ('a', {'a', 'b', 'c', 'd', 'e', 'f'}),
+    ('b', {'b', 'd', 'e', 'f'}),
+    ('c', {'c', 'd', 'e', 'f'}),
+    ('d', {'d', 'e', 'f'}),
+    ('e', {'e', 'f'}),
+    ('f', {'f'}),
+]
+
+# on vérifie pour chacun qu'on
+# obtient bien le résultat attendu
+for (s, expected) in G_tests:
+    computed = reachables(G, s)
+    if computed != expected:
+        print(f"ERROR found {computed} != {expected}")
+    else:
+        print(f"depuis {s} -> {computed}")
 ```
 
 ## plus court chemin
@@ -458,7 +483,7 @@ pour cela nous allons utiliser un algorithme très classique, connu sous le nom 
 
 +++
 
-c'est un algorithme très utilisé; lorsque vous demandez à l'appli RATP de vous calculer un itinéraire par exemple, c'est bien sûr comme ça que c'est calculé; remarquez que ce qu'on a appelé distance jusqu'ici, ça peut être aussi une durée, ou n'importe quoi d'autre bien entendu
+c'est un algorithme très utilisé; lorsque vous demandez à  une app de vous calculer un itinéraire par exemple, c'est bien sûr comme ça que c'est calculé, et il y a de fortes chances pour que l'algorithme utilisé soit basé sur Dijkstra; remarquez que ce qu'on a appelé distance jusqu'ici, ça peut être aussi une durée, ou n'importe quoi d'autre bien entendu.
 
 +++
 
@@ -539,7 +564,7 @@ Rappel :
 
 à ce stade si vous êtes relativement confortable avec Python, vous devez pouvoir écrire une fonction qui calcule la distance la plus courte entre deux noeuds du graphe
 
-n'hésitez pas alors à passer directement à la section "à vous de jouer", quitte à remonter voir les indices ensuite
+n'hésitez pas alors à passer directement à la section "exo #4", quitte à remonter voir les indices ensuite
 
 +++
 
