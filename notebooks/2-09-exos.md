@@ -65,3 +65,35 @@ un exercice pour évaluer les expressions numériques du genre de
 en version auto-corrigée; seul le premier exo est obligatoire, les rapides peuvent s'attaquer au second
 
 https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w6/w6-s9-x1b-postfix
+
++++
+
+## le palindrome
+
+écrivez une fonction qui vérifie si une chaine est un palindrome
+
+par exemple
+
+* `palindrome("Eva, Can I Stab Bats In A Cave?")` → `True`
+* `palindrome("A Man, A Plan, A Canal-Panama")` → `True`
+
+indice pour ignorer la ponctuation :
+
+```python
+In [1]: import string
+
+In [2]: string.punctuation
+Out[2]: '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+```
+
++++
+
+## gravity flip
+
+ https://www.codewars.com/kata/5f70c883e10f9e0001c8967
+
++++
+
+## les files de supermarché
+
+https://www.codewars.com/kata/57b06f90e298a7b53d000a86
