@@ -43,7 +43,4 @@ ce qu'on veut faire aujourd'hui principalement, c'est :
   * fichiers (16 slides)
   * containers 2/2 : dictionnaires et ensembles (28 slides)
   
-pour pratiquer tout cela, on fera
-
-* des exercices
-* un TP sur des algorithmes simples sur les graphes
+pour pratiquer tout cela, on fera des exercices, et si on y arrive un TP sur des algorithmes simples sur les graphes (sinon la semaine prochaine)

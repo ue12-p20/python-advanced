@@ -10,7 +10,7 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-notebookname: quiz sur numpy
+notebookname: quiz sur le snake
 version: '1.0'
 ---
 
