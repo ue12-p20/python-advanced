@@ -16,7 +16,7 @@ def tracks(coursedir):
     track_specs = [
         ('Python avancé', 'Python avancé', 'python', [
             ('1/9: jeux', 'notebooks/1-*.md', 'tps/games/README.md'),
-            ('2/9: types de base', 'notebooks/2-*.md', 'tps/dijkstra/README.md'),
+            ('2/9: types de base', 'quiz/2*.md', 'notebooks/2-*.md', 'tps/dijkstra/README.md'),
             ('3/9: itérations', 'notebooks/3-*.md'),
             ('4/9: fonctions', 'notebooks/4-*.md'),
             ('5/9: ???', 'notebooks/5-*.md'),
