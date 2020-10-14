@@ -6,8 +6,9 @@ FROM nbhosting/minimal-notebook
 # because we provide our own nbconfig/notebook.json
 # and that is where is stored the enabled/disabled extensions
 RUN true \
- && pip install -U nb-courselevels \
  && jupyter nbextension enable hide_input/main \
+ && pip install -U nb-courselevels \
+ && pip install -U nbautoeval \
  && pip install rise --pre \
  && pip install numpy pandas pandas \
  && apt-get install -y graphviz && pip install graphviz \
