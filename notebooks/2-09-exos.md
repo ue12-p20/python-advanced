@@ -57,18 +57,24 @@ un exercice pour évaluer les expressions numériques du genre de
 * on découpe la chaine en morceaux (des `tokens`)
 * on empile les opérandes lorsqu'ils sont des nombres
 * lorsqu'on traite un token parmi `+-*/` :
-  * on dépile deux fois pou obtenir les opérandes
+  * on dépile deux fois pour obtenir les opérandes
   * on effectue l'opération
   * on empile le résultat
 
 
-en version auto-corrigée; seul le premier exo est obligatoire, les rapides peuvent s'attaquer au second
+en version auto-corrigée:
 
 https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w6/w6-s9-x1b-postfix
+
+seul le premier exo est obligatoire, les rapides peuvent s'attaquer au second
 
 +++
 
 ## le palindrome
+
++++
+
+### version simple 
 
 écrivez une fonction qui vérifie si une chaine est un palindrome
 
@@ -88,9 +94,37 @@ Out[2]: '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
 
 +++
 
+### un peu moins simple
+
+même exercice, mais on veut aussi voir pourquoi :
+
+par exemple:
+
+* quand le mot est un palindrome
+
+```python
+>>> display_palindrome("kayak")
+kayak
+kayak
+OK
+```
+
+* quand il n'en est pas un
+
+```python
+>>> display_palindrome("follet")
+follet
+tellof
+^^  ^^
+```
+
+pour cette variante on suppose que le mot ne contient pas de ponctuation
+
++++
+
 ## gravity flip
 
- https://www.codewars.com/kata/5f70c883e10f9e0001c8967
+https://www.codewars.com/kata/5f70c883e10f9e0001c89673
 
 +++
 
