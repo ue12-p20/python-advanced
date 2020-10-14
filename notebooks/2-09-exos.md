@@ -70,6 +70,10 @@ https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w6/w6-s9-x1b-postfi
 
 ## le palindrome
 
++++
+
+### version simple 
+
 écrivez une fonction qui vérifie si une chaine est un palindrome
 
 par exemple
@@ -88,9 +92,37 @@ Out[2]: '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
 
 +++
 
+### un peu moins simple
+
+même exercice, mais on veut aussi voir pourquoi :
+
+par exemple:
+
+* quand le mot est un palindrome
+
+```python
+>>> display_palindrome("kayak")
+kayak
+kayak
+OK
+```
+
+* quand il n'en est pas un
+
+```python
+>>> display_palindrome("follet")
+follet
+tellof
+^^  ^^
+```
+
+pour cette variante on suppose que le mot ne contient pas de ponctuation
+
++++
+
 ## gravity flip
 
- https://www.codewars.com/kata/5f70c883e10f9e0001c8967
+https://www.codewars.com/kata/5f70c883e10f9e0001c89673
 
 +++
 
