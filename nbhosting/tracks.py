@@ -21,7 +21,7 @@ def tracks(coursedir):
                'notebooks/2-0[0-4]*.md',
                'notebooks/2-09*.md',
             ),
-            ('3/9: containers',
+            ('3/9: hash tables',
              # le quiz
               'quiz/3*.md',
               # intro

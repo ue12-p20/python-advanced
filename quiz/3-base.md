@@ -10,22 +10,15 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-notebookname: quiz sur le snake
+notebookname: quiz types de base
 version: '1.0'
 ---
 
 # quiz
 
-pour vous évaluer sur le TP du snake
+pour vous évaluer sur les types de base
 
 +++
-
-## mode d'emploi
-
-```{code-cell} ipython3
-from nbautoeval import quiz_help
-quiz_help("fr")
-```
 
 <span style="background-color:red; padding: 5px; margin-top: 5px;">l'heure limite est fixée à 13:50</span>
 
@@ -42,8 +35,17 @@ quiz_help("fr")
 :tags: [raises-exception]
 
 from nbautoeval import run_yaml_quiz
-run_yaml_quiz("snake", "quiz")
+run_yaml_quiz("base", "quiz")
 ```
 
 le quiz se trouve dans la cellule précédente, que vous devez évaluer
 ****
+
++++
+
+## mode d'emploi
+
+```{code-cell} ipython3
+from nbautoeval import quiz_help
+quiz_help("fr")
+```

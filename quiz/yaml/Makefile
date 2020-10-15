@@ -9,5 +9,8 @@
 
 
 ALL=$(shell git ls-files *.yamlb)
+PLAIN=$(subst yamlb,yamloop,$(ALL))
 
 all: $(ALL)
+
+loop: $(PLAIN)
