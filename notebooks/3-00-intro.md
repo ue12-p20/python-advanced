@@ -36,12 +36,7 @@ version: '1.0'
 
 le programme pour aujourd'hui
 
-* finir le TP sur les graphes 
-
-* voir / revoir certains aspects de la syntaxe et de la présentation
-
-* et surtout, le gros morceau, décortiquer toutes les façons de faire des itérations en Python
-
-pour mettre en pratique : on fera
-
-* ...
+* corriger les exos de la semaine dernière 
+* voir la deuxième famille de containes, basés sur les hash-tables,
+  i.e. dictionnaires et ensembles
+* faire un gros TP sur quelques algorithmes de base des graphes
