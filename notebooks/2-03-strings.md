@@ -59,7 +59,7 @@ un chaine - de type `str` - est une **séquence immutable**
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## opérations sur (toutes) les séquences
+### opérations sur (toutes) les séquences
 
 +++ {"cell_style": "split"}
 
@@ -77,7 +77,7 @@ un chaine - de type `str` - est une **séquence immutable**
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### opérations sur les séquences...
+#### opérations sur les séquences...
 
 +++ {"slideshow": {"slide_type": ""}, "cell_style": "split"}
 
@@ -94,7 +94,7 @@ un chaine - de type `str` - est une **séquence immutable**
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## slicing
+### slicing
 
 +++
 
@@ -111,7 +111,7 @@ un chaine - de type `str` - est une **séquence immutable**
 
 +++ {"cell_style": "split"}
 
-### *slicing*
+#### *slicing*
 
 +++ {"cell_style": "split"}
 
@@ -158,7 +158,7 @@ s[:]
 
 +++ {"cell_style": "split", "slideshow": {"slide_type": ""}}
 
-### les bornes
+#### les bornes
 
 +++ {"cell_style": "split"}
 
@@ -194,7 +194,7 @@ s[0:3] + s[3:6] + s[6:] == s
 
 +++ {"cell_style": "split"}
 
-### le pas
+#### le pas
 
 +++ {"cell_style": "split"}
 
@@ -232,7 +232,7 @@ s[-2::-3]
 
 +++ {"cell_style": "split"}
 
-### pas d'exception
+#### pas d'exception
 
 +++ {"cell_style": "split"}
 
@@ -301,7 +301,7 @@ s[2::-1]
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### slicing, formes idiomatiques
+#### slicing, formes idiomatiques
 
 ```{code-cell} ipython3
 s = [1, 2, 3]
@@ -323,7 +323,7 @@ s[::-1]
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-# `str` et `bytes`
+## `str` et `bytes`
 
 +++
 
@@ -338,7 +338,7 @@ s[::-1]
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-# chaînes de caractères `str`
+## chaînes de caractères `str`
 
 +++
 
@@ -363,7 +363,7 @@ print('on se dit "pourquoi pas"')
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## construire une chaîne
+### construire une chaîne
 
 ```{code-cell} ipython3
 :cell_style: split
@@ -396,7 +396,7 @@ print(s)
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## opérations sur les `str`
+### opérations sur les `str`
 
 * toutes les opérations des séquences
 
@@ -430,7 +430,7 @@ s1[-1::-2]
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### opérations sur les `str`
+#### opérations sur les `str` ...
 
 ```{code-cell} ipython3
 :cell_style: split
@@ -458,7 +458,7 @@ s1.index('cdé')
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### opérations sur les `str`
+#### opérations sur les `str` ...
 
 +++
 
@@ -473,7 +473,7 @@ except TypeError as e:
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## formatage des chaînes : f-strings
+### formatage des chaînes : f-strings
 
 +++ {"cell_style": "split"}
 
@@ -513,7 +513,7 @@ f"360° = {2*math.pi} radians"
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### formatage des chaînes de caractères
+#### formatage des chaînes de caractères
 
 +++ {"slideshow": {"slide_type": ""}}
 
@@ -525,7 +525,7 @@ print(f"ᴨ arrondi à deux décimales = {math.pi:.2f}")
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### formats - scientifiques
+#### formats - scientifiques
 
 +++
 
@@ -544,9 +544,9 @@ f'{x:e} | {y:f} | {x:g} | {y:010.2f} | {x:.2f}'
 Voir aussi pour plus de détails:  
 https://mkaz.blog/code/python-string-format-cookbook/
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}, "tags": ["level_intermediate"]}
 
-### formats pour f-string : justification
+#### formats pour f-string : justification
 
 +++
 
@@ -564,7 +564,7 @@ f"|{num:<12}|{num:-^12}|{num:0>12}|"
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## méthodes sur les `str`
+### méthodes sur les `str`
 
 +++
 
@@ -586,7 +586,7 @@ liste
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### sur les `str` : `split()` et `join()`
+#### sur les `str` : `split()` et `join()`
 
 ```{code-cell} ipython3
 liste
@@ -623,11 +623,11 @@ s2.split('_')
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-# `str` *vs* `bytes`
+## `str` *vs* `bytes`
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## contenus binaires et textuels
+### contenus binaires et textuels
 
 +++ {"slideshow": {"slide_type": ""}}
 
@@ -641,7 +641,7 @@ s2.split('_')
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## le problème
+### le problème
 
 +++
 
@@ -656,7 +656,7 @@ s2.split('_')
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## codage et décodage en python
+### codage et décodage en python
 
 +++ {"cell_style": "split"}
 
@@ -680,7 +680,7 @@ s2.split('_')
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-# Unicode
+## Unicode
 
 +++
 
@@ -696,7 +696,7 @@ s2.split('_')
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## l'essentiel sur UTF-8
+### l'essentiel sur UTF-8
 
 * c'est l'encodage le plus répandu aujourd'hui 
   * la famille des ISO-latin et autres cp1252 sont à proscrire absolument
@@ -710,7 +710,7 @@ s2.split('_')
 
 +++ {"slideshow": {"slide_type": "slide"}, "tags": ["level_intermediate"]}
 
-## UTF-8 illustré
+### UTF-8 illustré
 
 +++ {"slideshow": {"slide_type": ""}, "tags": []}
 
@@ -726,7 +726,7 @@ voici le flux binaire correspondant à la chaine `"été\n"`
 
 +++ {"slideshow": {"slide_type": "slide"}, "tags": ["level_advanced"]}
 
-## UTF-8 - le codage
+### UTF-8 - le codage
 
 +++
 
@@ -737,11 +737,11 @@ voici le flux binaire correspondant à la chaine `"été\n"`
 
 +++ {"slideshow": {"slide_type": ""}}
 
-![](media/unicode-utf8-areas.png) 
+![](media/unicode-utf8-areas.png)
 
 +++ {"slideshow": {"slide_type": "slide"}, "hide_input": true, "tags": []}
 
-# UTF-8 et Python: `encode` et `decode`
+## UTF-8 et Python: `encode` et `decode`
 
 ```{code-cell} ipython3
 :cell_style: split
@@ -778,7 +778,7 @@ len(octets)
 
 +++ {"slideshow": {"slide_type": "slide"}, "tags": []}
 
-## Unicode et Python: `chr` et `ord`
+### Unicode et Python: `chr` et `ord`
 
 +++ {"cell_style": "split"}
 
@@ -806,7 +806,7 @@ ord('é')
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-# pourquoi l’encodage c’est souvent un souci ?
+## pourquoi l’encodage c’est souvent un souci ?
 
 +++
 
@@ -822,7 +822,7 @@ ord('é')
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## pourquoi l’encodage c’est souvent un souci ?
+### pourquoi l’encodage c’est souvent un souci ?
 
 +++
 
