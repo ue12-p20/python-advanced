@@ -5,6 +5,7 @@
 ipykernel
 ipywidgets
 nbautoeval
+ipythontutor
 
 numpy
 pandas
