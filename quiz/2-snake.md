@@ -18,23 +18,6 @@ version: '1.0'
 
 pour vous évaluer sur le TP du snake
 
-+++
-
-## mode d'emploi
-
-```{code-cell} ipython3
-from nbautoeval import quiz_help
-quiz_help("fr")
-```
-
-<span style="background-color:red; padding: 5px; margin-top: 5px;">l'heure limite est fixée à 13:50</span>
-
-+++
-
-## le quiz
-
-+++
-
 **évaluez la cellule suivante** pour faire apparaitre le quiz
 
 ```{code-cell} ipython3
@@ -47,3 +30,12 @@ run_yaml_quiz("snake", "quiz")
 
 le quiz se trouve dans la cellule précédente, que vous devez évaluer
 ****
+
++++
+
+## mode d'emploi
+
+```{code-cell} ipython3
+from nbautoeval import quiz_help
+quiz_help("fr")
+```

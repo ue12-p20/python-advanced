@@ -18,16 +18,6 @@ version: '1.0'
 
 pour vous évaluer sur les types de base
 
-+++
-
-<span style="background-color:red; padding: 5px; margin-top: 5px;">l'heure limite est fixée à 13:50</span>
-
-+++
-
-## le quiz
-
-+++
-
 **évaluez la cellule suivante** pour faire apparaitre le quiz
 
 ```{code-cell} ipython3
