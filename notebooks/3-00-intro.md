@@ -37,7 +37,7 @@ version: '1.0'
 le programme pour aujourd'hui
 
 * corriger les exos de la semaine dernière 
-* voir la deuxième famille de containers, basés sur les hash-tables,
+* voir la deuxième famille de **containers**, basés sur les **hash-tables**,
   i.e. dictionnaires et ensembles
-* parler un peu de présentation du code
+* parler un peu de **présentation du code**
 * faire un gros TP sur quelques algorithmes de base des graphes
