@@ -14,6 +14,8 @@ Index
    2-04-files
    2-05-containers-2
    3-11-pep008
+   4-11-iterations-1
+   4-12-iterations-2
 
 Licence CC BY-NC-ND - Thierry Parmentelat
 
