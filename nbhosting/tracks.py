@@ -33,6 +33,7 @@ def tracks(coursedir):
               'notebooks/2-05*.md',
               'notebooks/3-1*.md',
               'tps/dijkstra/README.md',
+              'notebooks/3-9*.md',
             ),
             ('4/9: itérations', 'quiz/4*.md', 'notebooks/4-*.md'),
             ('5/9: ???', 'quiz/5*.md', 'notebooks/5-*.md'),
