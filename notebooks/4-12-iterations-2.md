@@ -60,30 +60,84 @@ très fréquemment on veut construire un mapping
 
 +++ {"cell_style": "split"}
 
-c'est le propos de la compréhension (de liste):
+c'est le propos de la  
+compréhension (de liste):
 
 ```python
-[expression(x) for x in iterable
-                 if condition(x)]
+[expr(x) for x in iterable]
 ```
 
 +++ {"cell_style": "split"}
 
+qui est  
+équivalent à 
+
+```python
+result = []
+for x in iterable:
+    result.append(expr(x))
+```
+
++++ {"slideshow": {"slide_type": "slide"}}
+
+### compréhension de liste avec filtre
+
++++ {"cell_style": "split"}
+
+si nécessaire on peut
+ajouter un test de filtre:
+
+```python
+[expr(x) for x in iterable if condition(x)]
+```
+
++++ {"cell_style": "split"}
+
+qui est  
 équivalent à 
 
 ```python
 result = []
 for x in iterable:
     if condition(x):
-        result.append(expression(x))
+        result.append(expr(x))
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-#### compréhensions de liste - équivalence
+#### compréhensions de liste - exemple 1
 
 ```{code-cell} ipython3
 :cell_style: split
+
+# la liste des carrés 
+# des entiers entre 0 et 5
+
+[x**2 for x in range(6)]
+```
+
+```{code-cell} ipython3
+:cell_style: split
+
+# si on décortique
+
+result = []
+
+for x in range(6):
+    result.append(x**2)
+
+result
+```
+
++++ {"slideshow": {"slide_type": "slide"}}
+
+#### compréhensions de liste - exemple 2
+
+```{code-cell} ipython3
+:cell_style: split
+
+# la liste des cubes
+# des entiers pairs entre 0 et 5
 
 [x**3 for x in range(6) if x % 2 == 0]
 ```
@@ -91,10 +145,14 @@ for x in iterable:
 ```{code-cell} ipython3
 :cell_style: split
 
+# si on décortique
+
 result = []
+
 for x in range(6):
     if x % 2 == 0:
         result.append(x**3)
+
 result
 ```
 
@@ -104,44 +162,45 @@ result
 
 +++
 
-* la clause `if condition` est bien entendu optionnelle
-* on peut imbriquer plusieurs niveaux de boucle
-  * la profondeur du résultat dépend **du nombre de `[`**  
-    et **pas du nombre de `for`**
+* on peut **imbriquer plusieurs niveaux** de boucle
+* la profondeur du résultat dépend **du nombre de `[`**  
+  et **pas du nombre de `for`**
 
 ```{code-cell} ipython3
 # une liste toute plate comme résultat
 # malgré deux boucles for imbriquées
-[x+y for x in (1, 2) for y in (3, 4)]
+[x+10*y for x in (1, 2) for y in (1, 2)]
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-#### compréhensions imbriquées - équivalence
+#### compréhensions imbriquées - exemple
 
 +++ {"cell_style": "center"}
 
 l'ordre dans lequel se lisent les compréhensions imbriquées:
+il faut imaginer des for imbriqués **dans le même ordre**
 
 ```{code-cell} ipython3
 :cell_style: split
 
-[(x, y) for x in range(7) 
-        if x % 2 == 0 
-            for y in range(x) 
-                if y % 2 == 1]
+[x + 10*y for x in range(1, 5) 
+     if x % 2 == 0 
+         for y in range(1, 5)
+             if y % 2 == 1]
 ```
 
 ```{code-cell} ipython3
 :cell_style: split
 
 # est équivalent à
+# (dans le même ordre)
 L = []
-for x in range(7):
+for x in range(1, 5):
     if x % 2 == 0:
-        for y in range(x):
+        for y in range(1, 5):
             if y % 2 == 1:
-                L.append((x, y))
+                L.append(x + 10*y)
 L
 ```
 
@@ -159,8 +218,8 @@ même principe exactement, mais avec des `{}` au lieu des `[]`
 # en délimitant avec des {} 
 # on construit une
 # compréhension d'ensemble
-{x**2 for x in range(-4, 5) 
- if x % 2 == 0}
+{x**2 for x in range(-6, 7) 
+    if x % 2 == 0}
 ```
 
 ```{code-cell} ipython3
@@ -170,7 +229,7 @@ même principe exactement, mais avec des `{}` au lieu des `[]`
 # que {} est un dict !
 result = set()
 
-for x in range(-4, 5):
+for x in range(-6, 7):
     if x % 2 == 0:
         result.add(x**2)
         
@@ -186,6 +245,40 @@ result
 syntaxe voisine, avec un `:` pour associer clé et valeur
 
 ```{code-cell} ipython3
+:cell_style: split
+
+# sans filtre
+ 
+{x : x**2 for x in range(4)}
+```
+
+```{code-cell} ipython3
+:cell_style: split
+
+# avec filtre
+
+{x : x**2 for x in range(4) if x%2 == 0}
+```
+
++++ {"slideshow": {"slide_type": "slide"}, "cell_style": "center"}
+
+#### exemple : créer un index par une compréhension
+
++++
+
+un idiome classique :
+
+* on a une liste d'éléments (beaucoup, genre $10^6$)
+* on veut pouvoir accéder **en temps constant** à un élément  
+  à partir d'un id
+* solution: créer un dictionnaire - qu'on appelle un *index*  
+  (comme dans les bases de données)
+
+```{code-cell} ipython3
+---
+slideshow:
+  slide_type: slide
+---
 # créer une table qui permet un accès direct à partir du nom
 personnes = [
     {'nom': 'Martin', 'prenom': 'Julie', 'age': 18},
@@ -193,14 +286,14 @@ personnes = [
     {'nom': 'Durand', 'prenom': 'Pierre', 'age': 25},  
 ]
 
-hash = {personne['nom']: personne for personne in personnes}
-hash
+index = {personne['nom']: personne for personne in personnes}
+index
 ```
 
 ```{code-cell} ipython3
-# ici hash ressemble à un index dans une base de données
-# en termes d'accès rapide à partir du nom
-hash['Martin']
+# le concept est le même que dans une base de données
+# en termes d'accès rapide à partir du nom qui jour le rôle d'id
+index['Martin']
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -221,20 +314,20 @@ elle a un **gros défaut**, c'est qu'on va toujours :
 
 +++
 
-finalement c'est la même discussion que itérateur *vs* itérable  
+finalement c'est **exactement** la même discussion que itérateur *vs* itérable  
 e.g. quand on avait comparé `range()` avec une liste
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ### expression génératrice
 
-
 * ça se présente un peu comme une compréhension de liste  
 * mais **avec des `()` à la place des `[]`**
-* supporte aussi les `if` et les imbrications
+* supporte les `if` et les imbrications  
+  exactement comme les compréhensions
 
 ```{code-cell} ipython3
-data = [1, 3]
+data = [0, 1]
 ```
 
 ```{code-cell} ipython3
@@ -251,7 +344,7 @@ for y in C:
 ```{code-cell} ipython3
 :cell_style: split
 
-# genexp
+# genexpr
 
 G = (x**2+y**2 for x in data for y in data)
 
@@ -261,10 +354,61 @@ for y in G:
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### compréhension ou genexp ?
+### les genexprs sont des itérateurs
 
-* les compréhensions de dictionnaire et d'ensemble sont souvent justifiées
-* par contre, pour les listes: **toujours bien se demander**  
++++
+
+* les objets construits avec une expression génératrice sont de type `generator`
+* en particulier ce sont des itérateurs
+
+```{code-cell} ipython3
+:cell_style: split
+
+# compréhension
+
+C = [x**2 for x in range(4)]
+
+C
+```
+
+```{code-cell} ipython3
+:cell_style: split
+
+# genexpr
+
+G = (x**2 for x in range(4))
+
+G
+```
+
+```{code-cell} ipython3
+:cell_style: split
+
+# une compréhension est une vraie liste
+
+C2 = [x**2 for x in range(100_000)]
+
+import sys
+sys.getsizeof(C2)
+```
+
+```{code-cell} ipython3
+:cell_style: split
+
+# les genexprs sont des itérateurs
+# et donc sont tout petits
+
+G2 = (x**2 for x in range(100_000))
+
+sys.getsizeof(G2)
+```
+
++++ {"slideshow": {"slide_type": "slide"}}
+
+### compréhension ou genexpr ?
+
+* les compréhensions de *dictionnaire* et d'*ensemble* sont souvent justifiées
+* par contre, pour les *listes*: **toujours bien se demander**  
   si on a vraiment besoin de **construire la liste**
 
 * ou si au contraire on a juste **besoin d'itérer** dessus  
@@ -285,14 +429,9 @@ for y in G:
 
 +++ {"cell_style": "split", "slideshow": {"slide_type": "slide"}}
 
-apprenez à bien choisir
-
-```
-les deux formes
-(*) compréhension et
-(*) genexp 
-sont utiles
-```
+apprenez à bien choisir entre  
+compréhension et genexpr  
+(les deux sont utiles)
 
 ```{code-cell} ipython3
 :cell_style: split
@@ -301,123 +440,32 @@ sont utiles
 from random import randint
 
 matieres = ('maths', 'français', 'philo')
-eleves = ('jean', 'julie', 'marie')
 
 def notes_eleve_aleatoires():
-    return [randint(0, 20) for matiere in matieres]
+    return {matiere: randint(0, 20) 
+            for matiere in matieres}
 ```
 
 ```{code-cell} ipython3
 :cell_style: center
 
 # ici je crée une compréhension; pourquoi ?
-notes_classe = [notes_eleve_aleatoires() for eleve in eleves]
+notes_classe = [notes_eleve_aleatoires() for _ in range(4)]
 notes_classe
 ```
 
 ```{code-cell} ipython3
 # pour calculer la moyenne de la classe en maths
 # pas besoin de garder les résultats intermédiaires
-# du coup, on fabrique une genexp
+# du coup, on fabrique une genexpr
 # en toute rigueur il aurait fallu écrire ceci
-sum((maths for maths, français, philo in notes_classe)) / len(eleves)
+sum((notes_eleve['maths'] for notes_eleve in notes_classe)) / len(notes_classe)
 ```
 
 ```{code-cell} ipython3
 # mais la syntaxe nous permet de nous en affranchir
 # (remarquez une seul niveau de parenthèses, et l'absence de [])
-sum(maths for maths, français, philo in notes_classe) / len(eleves)
-```
-
-+++ {"cell_style": "split", "slideshow": {"slide_type": "slide"}}
-
-typiquement utile avec `sum()`, `min()` et similaires
-
-```{code-cell} ipython3
----
-cell_style: center
-slideshow:
-  slide_type: ''
----
-# j'ai un ensemble de valeurs
-# je veux la somme des carrés de ces valeurs
-data = {-10, 5, -9, 15, -21}
-```
-
-```{code-cell} ipython3
-# je peux faire ceci
-sum([x**2 for x in data])
-```
-
-```{code-cell} ipython3
-# mais aussi juste ceci - remarquez l'absence des []
-sum(x**2 for x in data)
-```
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-### type `generator`
-
-```{code-cell} ipython3
-:cell_style: split
-
-# on peut examiner ces deux objets
-[x**2 for x in data]
-```
-
-```{code-cell} ipython3
-:cell_style: split
-
-# attention ici il faut les parenthèses
-(x**2 for x in data)
-```
-
-* les objets construits avec une expression génératrice sont de type `generator`
-* en particulier ce sont des itérateurs
-
-+++
-
-### benchmark
-
-```{code-cell} ipython3
----
-cell_style: center
-slideshow:
-  slide_type: slide
----
-# comme ce sont des itérateurs, il y a potentiellement
-# un énorme bénéfice à utiliser un générateur
-
-# une fonction qui ne parcourt pas
-# entièrement son paramètre iterable
-
-def search_100(iterable):
-    for i in iterable:
-        if i == 100:
-            return True
-```
-
-```{code-cell} ipython3
-:cell_style: split
-
-# cherchons 100 parmi les <n> premiers carrés
-n = 10**6
-
-# avec une compréhension 
-# on fait beaucoup de travail
-# pour rien
-%timeit search_100([x**2 for x in range(n)])
-```
-
-```{code-cell} ipython3
-:cell_style: split
-
-# avec une exp. génératrice ...
-# entre 50 et 100.000 fois plus rapide,
-# c'est normal :
-# on n'a pas eu besoin de créer
-# la liste des carrés 
-%timeit search_100(x**2 for x in range(n))
+sum(notes_eleve['maths'] for notes_eleve in notes_classe) / len(notes_classe)
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -429,63 +477,155 @@ n = 10**6
 * la **fonction génératrice** est une dernière forme très commune d'itérateurs
 * écrite sous la forme d'une fonction  
   qui fait `yield` au lieu de `return`
-* souvent appelé simplement *générateur* (par abus de langage car techniquement l'expression génératrice
-  est un générateur aussi)
-
-* c'est plus clair avec un exemple
 
 ```{code-cell} ipython3
 :cell_style: split
 
-for square in squares(3):
+# si une fonction contient
+# au moins un yield
+# elle devient une
+# fonction génératrice
+
+def squares(iterable):
+    for i in iterable:
+        yield i**2
+```
+
+```{code-cell} ipython3
+:cell_style: split
+
+data = (4, 1, 7)
+
+# cet objet est un générateur
+squares(data)
+```
+
+```{code-cell} ipython3
+:cell_style: split
+
+# en particulier
+# on peut itérer dessus
+
+for square in squares(data):
     print(square, end=" ")
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
+### vocabulaire
+
+* une expression génératrice retourne un objet de type `generator`
+* il est fréquent - par abus de langage - d'appeler aussi simplement *générateur*  
+  une fonction génératrice
+* mais précisément, c'est **l'appel** à une fonction génératrice  
+  qui retourne un objet de type `generator`
+  
+* on a donc **deux syntaxes différentes** pour construire  
+  des objets qui sont **tous de type `generator`**
+
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### expression génératrice *vs* fonction génératrice
-
-+++
-
-* les deux formes de générateur produisent des objets de même type `generator`
-* la fonction a une puissance d'expression supérieure
-* notamment elle permet de conserver l'état  
-  sous la forme de variables locales
-* et même en fait c'est plus fort que ça  
-  car une fonction génératrice peut en appeler d'autres
 
 ```{code-cell} ipython3
 :cell_style: split
 
-generator1 = (x**2 for x in range(2))
-type(generator1)
+# ces deux objets sont équivalents
+gen1 = (x**2 for x in data)
 ```
 
 ```{code-cell} ipython3
 :cell_style: split
 
-def squares(n):
-    for i in range(n):
+def squares(iterable):
+    for i in iterable:
         yield i**2
         
-generator2 = squares(2)
-type(generator2)
+gen2 = squares(data)
+```
+
+```{code-cell} ipython3
+:cell_style: split
+
+for x in gen1:
+    print(x)
+```
+
+```{code-cell} ipython3
+:cell_style: split
+
+for x in gen2:
+    print(x)
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
+
+#### expression génératrice *vs* fonction génératrice
+
++++
+
+* les deux formes de générateur (expression et fonction)  
+  produisent des objets de même type `generator`
+
+```{code-cell} ipython3
+:cell_style: split
+
+# une genexpr
+gen1 = (x**2 for x in data)
+type(gen1)
+```
+
+```{code-cell} ipython3
+:cell_style: split
+
+# (le résultat d'une)
+# fonction génératrice
+gen2 = squares(data)
+type(gen2)
+```
+
+* la fonction a toutefois une puissance d'expression supérieure
+* notamment elle permet de **conserver l'état** de l'itération  
+  sous la forme de variables locales
+
++++ {"slideshow": {"slide_type": "slide"}}
+
+### exercice
+
+implémenter un générateur qui parcourt tous les nombres premiers
+
++++ {"slideshow": {"slide_type": "slide"}, "tags": ["level_intermediate"]}
 
 ### `yield from`
 
 +++
 
+* une fonction génératrice est une fonction
+* donc elle peut appeler d'autres fonctions
+* qui peuvent elles-mêmes être des fonctions génératrices
+
++++
+
+exemple :
 partant d'une fonction génératrice qui énumère  
 tous les diviseurs d'un entier (1 et lui-même exclus)
 
-```{code-cell} ipython3
-:cell_style: split
++++ {"cell_style": "center"}
 
+comment écrire un générateur  
+qui énumère tous les diviseurs  
+... des diviseurs de `n` ?
+
+```{code-cell} ipython3
+---
+cell_style: split
+slideshow:
+  slide_type: slide
+---
+# on énumère les diviseurs
+# en partant du plus grand
 def divs(n):
-    for i in range(2, n):
+    for i in range(n-1, 1, -1):
         if n % i == 0:
             yield i
 ```
@@ -493,21 +633,109 @@ def divs(n):
 ```{code-cell} ipython3
 :cell_style: split
 
-
-
-for div in divs(30):
+for div in divs(12):
     print(div, end=" ")
 ```
 
-* maintenant si je veux écrire une fonction génératrice  
-  qui énumère tous les diviseurs des diviseurs de `n`
+```{code-cell} ipython3
+:cell_style: center
 
-* il s'agit donc d'une fonction génératrice qui en appelle une autre
-* il y a nécessité pour une syntaxe spéciale: `yield from`
+# quelque chose qui fasse en gros
+n = 12
+for d1 in divs(n):
+    for d2 in divs(d1):
+        print(d2)
+```
+
+mais sous forme de fonction génératrice
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
 #### `yield from`
+
++++
+
+pour énumérer les diviseurs des diviseurs, on pourrait penser écrire
+
+```{code-cell} ipython3
+:cell_style: split
+
+# première idée
+
+# pourquoi ça ne marche pas ?
+
+def divsdivs1(n):
+    for d in divs(n):
+        return divs(d)
+```
+
+```{code-cell} ipython3
+---
+cell_style: split
+slideshow:
+  slide_type: fragment
+---
+# c'est bien un générateur
+divsdivs1(12)
+```
+
+```{code-cell} ipython3
+:cell_style: split
+
+# mais...
+for d in divsdivs1(12):
+    print(d)    
+```
+
++++ {"slideshow": {"slide_type": "fragment"}}
+
+* on entre dans le `for` avec d=6
+* on évalue `divs(6)` (un générateur) 
+* **et c'est ça qu'on retourne** de suite
+
++++ {"slideshow": {"slide_type": "slide"}}
+
+**deuxième idée**  
+pour énumérer les diviseurs des diviseurs, on pourrait penser écrire
+
+```{code-cell} ipython3
+:cell_style: split
+
+# pourquoi ça ne marche pas ?
+def divsdivs2(n):
+    for d in divs(n):
+        yield divs(d)
+```
+
+```{code-cell} ipython3
+:cell_style: split
+
+# c'est bien un générateur
+divsdivs2(12)
+```
+
+```{code-cell} ipython3
+:cell_style: split
+
+# mais...
+for d in divsdivs2(12):
+    print(d)
+```
+
++++ {"slideshow": {"slide_type": "fragment"}}
+
+* cette fois on va bien énumérer `divs(6)`, `divs(4)`, `divs(3)` puis `divs(2)` 
+* **mais pas itérer** sur ces 4 générateurs
+* c'est pourquoi ils se retrouvent imprimés tels quels
+
++++ {"slideshow": {"slide_type": "slide"}}
+
+#### `yield from`
+
++++
+
+* on voit que lorsqu'une fonction génératrice en appelle une autre
+* il y a nécessité pour une syntaxe spéciale: `yield from`
 
 ```{code-cell} ipython3
 :cell_style: split
@@ -520,348 +748,6 @@ def divdivs(n):
 ```{code-cell} ipython3
 :cell_style: split
 
-for div in divdivs(30):
-    print(div, end=" ")
+for div in divdivs(12):
+    print(div)
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}, "tags": ["level_advanced"]}
-
-### fonction génératrice - épilogue
-
-+++
-
-pour évaluer la boucle `for` dans ce dernier cas:
-
-* la **pile** principale (de la fonction qui fait `for`)
-* **et** une **pile** annexe qui évalue la fonction génératrice
-* et qui se fait "mettre au congélateur" à chaque itération de la boucle
-* l'état de l'itération: toutes les variables locales de la pile annexe
-  * les deux `i` dans l'exemple précédent
-
-c'est cette propriété qui est utilisée pour implémenter la librairie asynchrone `asyncio`
-
-+++ {"slideshow": {"slide_type": "slide"}, "tags": ["level_intermediate"]}
-
-### sous le capot de la boucle `for`
-
-+++ {"cell_style": "split"}
-
-lorsqu'on itère sur un itérable
-
-```{code-cell} ipython3
-:cell_style: split
-
-iterable = [10, 20, 30]
-```
-
-sous le capot, la boucle `for` va faire:
-
-  * créer un itérateur en appelant `iter(iterable)`
-  * appeler `next()` sur cet itérateur
-  * jusqu'à obtenir l'exception `StopIteration`
-
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: slide
----
-for item in iterable:
-    print(item)
-```
-
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: ''
----
-iterateur = iter(iterable)
-while True:
-    try:
-        item = next(iterateur)
-        print(item)
-    except StopIteration:
-        # print("fin")
-        break
-```
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-#### sous le capot de la boucle `for`
-
-+++
-
-* `next()` et `iter()` sont des fonctions natives
-* et naturellement:
-  * `iter(obj)` appelle `obj.__iter__()`
-  * `next(obj)` appelle `obj.__next__()`
-
-+++ {"slideshow": {"slide_type": "slide"}, "tags": ["level_advanced"]}
-
-## itérations et itérables (partie optionnelle)
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-### rendre un objet itérable
-
-+++
-
-* en python, avec les classes, on peut 
-  * se définir des types utilisateur
-  * et bien les intégrer dans le langage 
-* par exemple, il existe un *protocole* 
-  * pour rendre un objet itérable
-  * i.e. pour pouvoir l'utiliser dans un for
-* deux moyens
-  * via `__getitem__` (une séquence - accès direct)
-  * via `__iter__()` qui doit retourner un itérateur
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-### itérable avec `__getitem__`
-
-+++
-
-* si votre objet est une séquence
-* vous pouvez définir la méthode `__getitem__()`
-  * qui sera alors appelée par le `for` 
-  * avec en argument `0`, `1`, ...
-  * jusqu'à ce que `__getitem__` lève `StopIteration`
-* c'est adapté pour des objets qui ont un accès direct 
-  * à leurs sous-composants
-* technique assez *old-school* 
-  * conservé pour compatibilité
-  * mais on n'en parle plus dans la suite du cours
-
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: slide
----
-# un itérable implémenté avec __getitem__
-
-class PseudoSequence:
-    
-    def __init__(self, top):
-        self.top = top
-        
-    def __getitem__(self, index):
-        if not isinstance(index, int):
-            raise TypeError
-        if 0 <= index < self.top: 
-            return 2 ** index
-        else:
-            raise IndexError
-```
-
-```{code-cell} ipython3
-:cell_style: split
-
-seq = PseudoSequence(4)
-for i in seq:
-    print(i)
-```
-
-```{code-cell} ipython3
-:cell_style: split
-
-seq[0], seq[2]
-```
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-### itérable avec itérateur
-
-+++
-
-* on peut rendre un objet **itérable**
-  * en écrivant la méthode magique `__iter__()`  
-    qui doit retourner un itérateur
-
-* Q: d'accord, mais alors c'est quoi un itérateur ?  
-  A: ici à nouveau il y a un *protocole*
-
-+++
-
-* protocole **itérateur**
-  * une méthode `__next__()`  
-    qui à chaque appel retourne l’élément suivant
-    ou qui lève une exception `StopIteration`  
-    lorsqu’il n’y a plus d’élément à retourner
-
-  * une méthode `__iter__()` qui retourne l’itérateur lui-même
-    * et donc un itérateur est lui-même itérable
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-### séparer itérateur et itérable
-
-+++
-
-* le plus souvent possible
-  * on définit les itérateurs "sans donnée"
-  * comme `range()` ou `count()`
-  * ou comme des générateurs
-* lorsqu'on définit un itérateur sur une "vraie" structure de données
-  * l'itérable contient les données
-  * l'iterateur ne contient **que** la logique/état d'itération
-  * il est important alors **séparer** les deux objets
-  * ne serait-ce que pour pouvoir faire des boucles imbriquées
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-#### séparer itérateur et itérable
-
-```{code-cell} ipython3
-:cell_style: center
-
-liste = [0, 10, 100]
-```
-
-```{code-cell} ipython3
-:cell_style: split
-
-for item in liste:
-    print(item, end=" ")
-```
-
-```{code-cell} ipython3
-:cell_style: split
-
-# avec une seule boucle, 
-# on peut itérer sur l'itérateur
-iterator = iter(liste)
-
-for item in iterator:
-    print(item, end=" ")
-```
-
-```{code-cell} ipython3
-:cell_style: split
-
-# avec deux boucles par contre
-for item1 in liste:
-    for item2 in liste:
-        print(f"{item1}x{item2}")
-```
-
-```{code-cell} ipython3
-:cell_style: split
-
-# ça ne fonctionne plus du tout !
-iterator = iter(liste)
-
-for item1 in iterator:
-    for item2 in iterator:
-        print(f"{item1}x{item2}")
-```
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-### utilisation des itérables
-
-+++
-
-* on a défini les itérables par rapport à la boucle `for` 
-* mais plusieurs fonctions acceptent en argument des itérables
-* `sum`, `max`, `min`
-* `map`, `filter`
-* etc...
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-### exemple de la puissance des itérateurs
-
-+++
-
-* imaginons que je veuille afficher toutes les lignes d’un fichier qui contienne le mot 'matin'
-* est-ce possible de le faire en seulement 4 lignes ?
-* sans notation cryptique et incompréhensible
-
-```{code-cell} ipython3
-with open('../data/une-charogne.txt') as feed:
-    for lineno, line in enumerate(feed, 1):
-        if 'matin' in line:
-            print(f"{lineno}:{line}", end="")
-```
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-### quel objet est itérable ?
-
-+++
-
-* il existe beaucoup d’objets itérables en python
-  * tous les objets séquence: listes, tuples, chaînes, etc.
-  * les sets, les dictionnaires
-  * les vues (dict.keys(), dict.values()), etc.
-  * les fichiers
-  * les générateurs
-* il faut les utiliser, c’est le plus rapide et le plus lisible
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-### quel objet est un itérateur ?
-
-+++ {"cell_style": "split"}
-
-* on peut voir si  
-  `iter(obj) is obj`
-
-```{code-cell} ipython3
-:cell_style: split
-
-def is_iterator(obj):
-    return iter(obj) is obj
-```
-
-* à la lumière de ce qu'on a vu
-  * une liste **n'est pas** son propre itérateur
-  * un fichier **est** son propre itérateur
-
-```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: slide
----
-# un fichier est son propre itérateur
-with open("../data/une-charogne.txt") as F:
-    print("propre itérateur ? ",
-          is_iterator(F))
-```
-
-```{code-cell} ipython3
-:cell_style: split
-
-# la liste non
-L = list(range(5))
-print("propre itérateur ? ",
-      is_iterator(L))
-```
-
-```{code-cell} ipython3
-:cell_style: split
-
-# range() non plus 
-R = range(5)
-print("propre itérateur ? ",
-      is_iterator(R))
-```
-
-```{code-cell} ipython3
-:cell_style: split
-
-# range() non plus 
-Z = zip(L, L)
-print("propre itérateur ? ",
-      is_iterator(Z))
-```
-
-* de manière générale, un objet qui est un itérateur  
-  ne peut être itéré qu'une seule fois
-
-* attention donc par exemple à ne pas essayer  
-  d'itérer plusieurs fois sur le même objet `zip`

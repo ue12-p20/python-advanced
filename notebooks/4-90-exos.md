@@ -32,11 +32,43 @@ version: '1.0'
 
 +++
 
+## calcul des impôts
+
+auto-corrigé sur nbhosting
+
+https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w4/w4-s3-x2-taxes
+
+**NB** : ne vous laissez pas influencer par le fait que le thème de la semaine est la boucle `for`…
+
++++
+
+## playing with digits
+
+sur codewars (6-kyu)
+
+https://www.codewars.com/kata/5552101f47fc5178b1000050/train/python
+
++++
+
+## integer reduction
+
+sur codewars (6-kyu)
+
+https://www.codewars.com/kata/59fd6d2332b8b9955200005f/train/python
+
++++
+
 ## code de Vigenère
 
 auto-corrigé sur nbhosting
 
 https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w5/w5-s3-x2-vigenere
+
++++ {"tags": []}
+
+***
+***
+***
 
 +++
 
@@ -44,27 +76,26 @@ https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w5/w5-s3-x2-vigener
 
 auto-corrigé sur nbhosting
 
-
 https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w5/w5-s3-x1-comprehensions
 
 +++
 
-## calcul des impôts
+## where my anagrams at ?
+
+sur codewars (5-kyu)
+
+https://www.codewars.com/kata/523a86aa4230ebb5420001e1/train/python
+
++++
+
+## générateurs de nombres premiers
 
 auto-corrigé sur nbhosting
 
-https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w4/w4-s3-x2-taxes
+https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w6/w6-s9-x4-primes
 
-+++ {"tags": []}
++++
 
-## integer reduction
+## un générateur pour parcourir un arbre
 
-sur codewars
-
-https://www.codewars.com/kata/59fd6d2332b8b9955200005f/train/python
-
-+++ {"tags": []}
-
-## tree scanner as a generator
-
-mettre dans un TP ?
+https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w6/w6-s9-x6-treescanner

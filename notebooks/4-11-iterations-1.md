@@ -305,6 +305,26 @@ for element in ensemble:
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
+#### la boucle `for`, mais pas que
+
++++ {"cell_style": "split"}
+
+* on a défini les itérables par rapport à la boucle `for` 
+* mais plusieurs fonctions acceptent en argument des itérables
+* `sum`, `max`, `min`
+* `map`, `filter`
+* etc...
+
+```{code-cell} ipython3
+:cell_style: split
+
+L = [20, 34, 57, 2, 25]
+
+min(L), sum(L)
+```
+
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### itérateurs
 
 * les **itérateurs** sont une sous-famille des itérables
@@ -618,6 +638,47 @@ for i in R:
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
+du coup par exemple,  
+**ne pas essayer d'itérer deux fois** sur un `zip()` ou un `enumerate()`
+
+```{code-cell} ipython3
+---
+cell_style: split
+slideshow:
+  slide_type: ''
+---
+Z = zip(range(3), range(4, 7))
+
+print('pass 1')
+for a, b in Z:
+    print(a, b)
+    
+print('pass 2')
+for a, b in Z:
+    print(a, b)    
+```
+
+```{code-cell} ipython3
+---
+cell_style: split
+slideshow:
+  slide_type: ''
+---
+E = enumerate(L)
+
+print('pass 1')
+for a, b in E:
+    print(a, b)
+    
+print('pass 2')
+for a, b in E:
+    print(a, b)    
+```
+
+**NB** il suffit de faire e.g. `for a, b in enumerate(L)` pour se débarrasser du problème
+
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## le module `itertools` - assemblage d'itérables
 
 +++
@@ -761,7 +822,7 @@ Le module `itertools` propose aussi quelques combinatoires usuelles:
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### le module `itertools`
+#### exemple avec `product`
 
 ```{code-cell} ipython3
 from itertools import product
@@ -775,7 +836,145 @@ for i, (d1, d2) in enumerate(product(dim1, dim2), 1):
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-**exercices** (voir notebook sépáré)
+**exercices** (voir notebook séparé)
 
 * vigenere
-*
+
++++ {"slideshow": {"slide_type": "slide"}, "tags": ["level_intermediate"]}
+
+## sous le capot
+
++++
+
+### comment marche la boucle `for`
+
++++ {"cell_style": "split"}
+
+lorsqu'on itère sur un itérable
+
+```{code-cell} ipython3
+:cell_style: split
+
+iterable = [10, 20, 30]
+```
+
+sous le capot, la boucle `for` va faire:
+
+  * créer un itérateur en appelant `iter(iterable)`
+  * appeler `next()` sur cet itérateur
+  * jusqu'à obtenir l'exception `StopIteration`
+
++++ {"slideshow": {"slide_type": "slide"}}
+
+voici un équivalent approximatif
+
+```{code-cell} ipython3
+---
+cell_style: split
+slideshow:
+  slide_type: ''
+---
+# cette boucle for 
+
+for item in iterable:
+    print(item)
+```
+
+```{code-cell} ipython3
+---
+cell_style: split
+slideshow:
+  slide_type: ''
+---
+# est en gros équivalente
+# à ce fragment
+
+iterateur = iter(iterable)
+while True:
+    try:
+        item = next(iterateur)
+        print(item)
+    except StopIteration:
+        # print("fin")
+        break
+```
+
++++ {"slideshow": {"slide_type": "slide"}}
+
+### quel objet est itérable ?
+
++++
+
+* il existe beaucoup d’objets itérables en python
+  * tous les objets séquence: listes, tuples, chaînes, etc.
+  * les sets, les dictionnaires
+  * les vues (dict.keys(), dict.values()), etc.
+  * les fichiers
+  * les générateurs
+* il faut les utiliser, c’est le plus rapide et le plus lisible
+
++++ {"slideshow": {"slide_type": "slide"}}
+
+### quel objet est un itérateur ?
+
++++ {"cell_style": "split"}
+
+pour savoir si un objet est un itérateur  
+tester si  
+  `iter(obj) is obj`
+
+```{code-cell} ipython3
+---
+cell_style: split
+slideshow:
+  slide_type: ''
+---
+def is_iterator(obj):
+    return iter(obj) is obj
+```
+
++++ {"slideshow": {"slide_type": "slide"}}
+
+### par exemple
+
+* une liste **n'est pas** son propre itérateur
+* un fichier **est** son propre itérateur
+
+```{code-cell} ipython3
+---
+cell_style: split
+slideshow:
+  slide_type: slide
+---
+# un fichier est son propre itérateur
+with open("data/une-charogne.txt") as F:
+    print(f"{is_iterator(F)=}")
+```
+
+```{code-cell} ipython3
+:cell_style: split
+
+# la liste non
+L = list(range(5))
+print(f"{is_iterator(L)=}")
+```
+
+```{code-cell} ipython3
+:cell_style: split
+
+# cycle en est un
+C = cycle(L)
+print(f"{is_iterator(C)=}")
+```
+
+```{code-cell} ipython3
+:cell_style: split
+
+# un zip() est un itérateur
+Z = zip(L, L)
+print(f"{is_iterator(Z)=}")
+```
+
+* Bien se souvenir : **un itérateur s'épuise**  
+  de manière générale, un objet qui est un itérateur  
+  ne peut être itéré qu'une seule fois

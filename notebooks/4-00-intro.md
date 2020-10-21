@@ -46,4 +46,4 @@ le programme pour aujourd'hui
   * les compréhensions
   * les expressions génératrices
   * les fonctions génératrices
-* pratiquer sur des exercices xxx
+* pratiquer sur des exercices

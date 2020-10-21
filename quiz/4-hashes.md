@@ -10,7 +10,7 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-notebookname: quiz xxx
+notebookname: quiz tables de hash
 version: '1.0'
 ---
 
