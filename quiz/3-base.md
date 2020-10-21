@@ -10,13 +10,13 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-notebookname: quiz sur le snake
+notebookname: quiz types de base
 version: '1.0'
 ---
 
 # quiz
 
-pour vous évaluer sur le TP du snake
+pour vous évaluer sur les types de base
 
 **évaluez la cellule suivante** pour faire apparaitre le quiz
 
@@ -25,7 +25,7 @@ pour vous évaluer sur le TP du snake
 :tags: [raises-exception]
 
 from nbautoeval import run_yaml_quiz
-run_yaml_quiz("snake", "quiz")
+run_yaml_quiz("base", "quiz")
 ```
 
 le quiz se trouve dans la cellule précédente, que vous devez évaluer
