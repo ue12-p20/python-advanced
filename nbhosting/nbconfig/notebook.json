@@ -1,5 +1,6 @@
 {
   "rise": {
+    "enable_chalkboard": true,
     "reveal_shortcuts": {
       "main": {
         "firstSlide": "shift-left",
