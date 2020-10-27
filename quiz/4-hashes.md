@@ -16,7 +16,7 @@ version: '1.0'
 
 # quiz
 
-pour vous évaluer sur le cours #3
+pour vous évaluer sur le cours #3 : dictionnaires et ensembles
 
 +++
 
@@ -25,12 +25,6 @@ pour vous évaluer sur le cours #3
 +++
 
 **évaluez la cellule suivante** pour faire apparaitre le quiz
-
-```{code-cell} ipython3
-# hashes REMOVE ME
-from nbautoeval.storage import storage_clear
-storage_clear("quiz-hashes")
-```
 
 ```{code-cell} ipython3
 :hide_input: false
