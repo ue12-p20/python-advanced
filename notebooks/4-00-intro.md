@@ -47,3 +47,13 @@ le programme pour aujourd'hui
   * les expressions génératrices
   * les fonctions génératrices
 * pratiquer sur des exercices
+
++++
+
+## les solutions
+
+vous trouverez avec un peu de retard les solutions aux exercices des semaines passées ici
+
+https://github.com/ue12/python-advanced-solutions
+
+donc aujourd'hui vous y trouverez les solutions (en tous cas de la plupart) des exercices des cours #1 et #2
