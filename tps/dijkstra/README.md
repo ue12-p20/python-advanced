@@ -55,8 +55,8 @@ comme nous n'avons pas encore étudié les classes, nous allons nous restreindre
 nous nous intéressons aux graphes **valués**, qu'on peut définir formellement comme un triplet $G =(V, E, W)$, où
 
 * $V$ est un ensemble quelconque, qu'on appelle l'ensemble des sommets (*vertices*) du graphe,
-* $E$ est une partie de $E\times E \times \mathbb{N}$; les couples $(v_1, v_2)$ dans $E$ s'appellent les arêtes (*edges*) du graphe
-* $W$ est une fonction $E\rightarrow\mathbb{N}$, qui attache à chaque arête une valeur entière, un poids (*weight*), qui peut être interprétée aussi selon les usages comme une distance entre les sommets concernés; ou tout autre chose d'ailleurs, par exemple une durée…
+* $E$ est une partie de $V\times V$; les couples $(v_1, v_2)$ dans $E$ s'appellent les arêtes (*edges*) du graphe
+* $W$ est une fonction $E\rightarrow\mathbb{N}$, qui attache à chaque arête une valeur entière, un poids (*weight*), qui peut être interprété aussi selon les usages comme une distance entre les sommets concernés; ou tout autre chose d'ailleurs, par exemple une durée…
 
 ![](media/graph.png)
 
