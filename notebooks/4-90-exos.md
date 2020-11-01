@@ -10,7 +10,7 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-notebookname: exos
+notebookname: exos itérations (1)
 rise:
   autolaunch: true
   slideNumber: c/t
