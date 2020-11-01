@@ -468,7 +468,11 @@ sum((notes_eleve['maths'] for notes_eleve in notes_classe)) / len(notes_classe)
 sum(notes_eleve['maths'] for notes_eleve in notes_classe) / len(notes_classe)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}, "tags": ["level_intermediate"]}
+
+toute la suite du notebook est classée en niveau intermédiaire
+
++++ {"slideshow": {"slide_type": "slide"}, "tags": ["level_intermediate"]}
 
 ## fonction génératrice
 
