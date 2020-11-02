@@ -262,8 +262,17 @@ class Point:
 ```
 
 ```{code-cell} ipython3
+:cell_style: split
+
 a = Point(4, 3)
-a
+b = Point(7, 7)
+a, b
+```
+
+```{code-cell} ipython3
+:cell_style: split
+
+a.distance(b)
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -317,6 +326,7 @@ class Circle2:
     def __repr__(self):
         return f"[{self.center} ⟷ {self.radius:.2f}]"
     
+    # si on transforme cette méthode en méthode spéciale...
     def __contains__(self, point: Point):
         """
         returns a bool; does point belong in the circle ?
@@ -327,6 +337,9 @@ class Circle2:
 
 ```{code-cell} ipython3
 c2 = Circle2(Point(0, 0), 5)
+
+# alors on peut faire le même calcul, mais
+# l'écrire comme un test d'appartenance habituel 'x in y'
 a in c2
 ```
 
