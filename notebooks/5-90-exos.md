@@ -32,13 +32,13 @@ version: '1.0'
 
 # exercices sur les classes
 
-+++
++++ {"tags": []}
 
-## les chiffres romains
+## les quaternions
 
 auto-corrigé sur nbhosting
 
-https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w6/w6-s9-x7-roman
+https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w6/w6-s9-x8-quaternion
 
 +++ {"tags": []}
 
@@ -47,3 +47,11 @@ https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w6/w6-s9-x7-roman
 auto-corrigé sur nbhosting
 
 https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w6/w6-s9-x2-polynomial
+
++++
+
+## les chiffres romains
+
+auto-corrigé sur nbhosting
+
+https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w6/w6-s9-x7-roman
