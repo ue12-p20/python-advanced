@@ -29,9 +29,9 @@ version: '1.0'
 
 +++ {"slideshow": {"slide_type": ""}}
 
-# classes : rappels
+# classes : rappels (1)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": ""}}
 
 les classes servent à définir **de nouveau types**  
 
@@ -473,7 +473,9 @@ print(f"{achille} a {achille.repr_age()}")
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### exemple : class `Class`
+### exemple : class `Class` 
+
+(dans le sens: groupe de `Student`s)
 
 * bien sûr on peut combiner nos types (les classes)  
   avec les types de base
@@ -510,7 +512,8 @@ gaston = Student("Gaston", "Lagaffe", 1995, 2, 28)
 haddock = Student("Capitaine", "Haddock", 2000, 1, 14)
 tournesol = Student("Professeur", "Tournesol", 1996, 2, 29)
 
-# attention je ne peux pas utiliser la variable 'class'
+# attention je ne peux pas utiliser une variable 
+# qui s'appellerait 'class' car c'est un mot-clé de Python
 
 cls = Class("CIC1A", [achille, hilarion, gaston, haddock, tournesol])
 cls
@@ -528,33 +531,26 @@ timedelta_as_year_month(cls.average_age())
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Résumé (1/2)
+## résumé (1/2)
 
 * avec `class` on peut définir un **nouveau type** 
   * qui nous permet de **créer des objets**
   * qui représentent mieux que les types de base les données de notre application
   
-* les objets ainsi créés peuvent être utilisés normalement
+* pas de différence entre un type prédéfini et une classe :  
+  un objet créé par une classe s'utilise *normalement*
   * une variable peut désigner un objet
   * un objet peut être dans une liste (ou autre type) *builtin*  
     (attention pour les clés de `dict` qui doivent être immutables)
   * ou passé en paramètre à une fonction,
   * etc, etc...
-  * exactement comme les types prédéfinis,  
-    qui sont essentiellement de même nature que les classes
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### Résumé (2/2)
+### résumé (2/2)
   
 * une classe peut définir des **méthodes**
   * qui travaillent sur un objet (souvent appelé `self`)
   * souvent on ne modifie les objets  
     qu'au travers des méthodes fournies par la classe
   * ce qui permet de garantir certains invariants
-  
-* une classe peut définir des **méthodes spéciales**  
-  * notamment le constructeur pour l'initialisation,
-  * souvent un afficheur pour `print()`
-  * optionnellement d'autres pour donner du sens à  
-    des constructions du langage sur ces objets

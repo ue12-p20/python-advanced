@@ -50,6 +50,7 @@ def tracks(coursedir):
              'notebooks/4-12*.md',
              'notebooks/4-91*.md',
              'notebooks/5-1*.md',
+             'tps/students/README.md',
              'notebooks/5-9*.md',
              ),
             ('6/9: ???', 'quiz/6*.md', 'notebooks/6-*.md'),
