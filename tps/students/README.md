@@ -31,10 +31,18 @@ version: '1.0'
 `add_grade(topic, grade)`
 * dans ce TP nous allons nous définir deux classes `Student` et `Class`. Comme vous l'avez vu en cours une classe est définie (entre autres) par une série d'attributs et de méthodes. Il faut voir les méthodes comme des fonctions écrites spécialement pour s'appliquer à une instance de la classe. Les méthodes sont des fonctions qui, vous avez l'habitude de voir maintenant, ont généralement `self` comme premier argument; cela permet une utilisation `instance.methode(autre, arguments)`  
   Ainsi, lorsqu'il vous est demandé d'implémenter la méthode `add_grade(topic: str, grade: float)` à la classe `Student`, n'oubliez pas que cela se traduit dans votre cellule par quelque chose comme : 
+```python
+class Student:
+    ...
+    
+    def add_grade(self, topic: str, grade: float):
+        # Votre code ici
+        pass
 
-Notez l'apparition du `self` comme premier argument ! Bon courage ! ;)
-
- 
+    ...
+```
+  
+  Notez l'apparition du `self` comme premier argument ! Bon courage ! ;)
 
 +++
 
@@ -54,11 +62,6 @@ class Student:
 ```
 
 Dans la suite du TP, vous allez devoir ajouter des fonctionnalités à la classe `Student`. Pour ce faire, vous devez revenir à **chaque fois** à cette cellule, implémenter votre code et **ré-évaluer** la cellule pour que les changements soient pris en compte.
-
-+++
-
-**Astuce**  
-Dans la barre de menu du notebook, il y a des boutons avec `↑` et `↓` pour monter et descendre la cellule sélectionnée; vous pouvez imaginer grâce à cela faire descendre la cellule de code qui définit la class `Student` au fur et à mesure du TP. (Vous pouvez aussi d'ailleurs déplacer la cellule sélectionnée aves les raccourcis clavier `u` et `d` en mode commande)
 
 +++
 
@@ -180,12 +183,12 @@ else:
     print('Congrats ! Your implementation works !')
 ```
 
-## La classe `Classe`
-Nous allons maintenant gérer un ensemble d'élèves dans l'objet `Classe`.
+## La classe `Class`
+Nous allons maintenant gérer un ensemble d'élèves dans l'objet `Class`.
 
 ```{code-cell} ipython3
 class Class:
-    def __init__(self, classname):
+    def __init__(self, classname: str):
         pass
         
     def add_student(self, student: Student):
