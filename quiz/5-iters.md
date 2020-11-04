@@ -19,12 +19,6 @@ version: '1.0'
 **évaluez la cellule suivante** pour faire apparaitre le quiz sur les itérations
 
 ```{code-cell} ipython3
-# xxx REMOVE ME
-from nbautoeval.storage import storage_clear
-storage_clear("quiz-iters")
-```
-
-```{code-cell} ipython3
 :hide_input: false
 :tags: [raises-exception]
 
