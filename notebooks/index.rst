@@ -16,6 +16,8 @@ Index
    3-11-pep008
    4-11-iterations-1
    4-12-iterations-2
-
+   5-11-classes.md
+   5-12-dunder-specials.md
+   
 Licence CC BY-NC-ND - Thierry Parmentelat
 
