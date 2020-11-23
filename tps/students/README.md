@@ -9,7 +9,6 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-notebookname: classes simples
 rise:
   autolaunch: true
   slideNumber: c/t
@@ -17,8 +16,8 @@ rise:
   theme: sky
   transition: cube
 nbhosting:
+  title: classes simples
   show_up_down_buttons: yes
-version: '1.0'
 ---
 
 # TP : Student et Class
