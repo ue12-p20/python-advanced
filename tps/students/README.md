@@ -16,6 +16,8 @@ rise:
   start_slideshow_at: selected
   theme: sky
   transition: cube
+nbhosting:
+  show_up_down_buttons: yes
 version: '1.0'
 ---
 
