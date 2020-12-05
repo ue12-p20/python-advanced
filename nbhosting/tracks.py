@@ -53,7 +53,7 @@ def tracks(coursedir):
              'tps/students/README.md',
              'notebooks/5-9*.md',
              ),
-            ('6/9: ???', 'quiz/6*.md', 'notebooks/6-*.md'),
+            ('6/9: fonctions', 'quiz/6*.md', 'notebooks/6-*.md'),
             ('7/9: ???', 'quiz/7*.md', 'notebooks/7-*.md'),
             ('8/9: ???', 'quiz/8*.md', 'notebooks/8-*.md'),
             ('9/9: ???', 'quiz/9*.md', 'notebooks/9-*.md'),
