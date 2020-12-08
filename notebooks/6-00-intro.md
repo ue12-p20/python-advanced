@@ -48,23 +48,27 @@ une [présentation de type slides au format pdf](media/les-fonctions.pdf)
 
 1. une vidéo sur le passage de paramètres
 
-  <video width="800px" controls src="media/les-arguments-des-fonctions.mp4" type="video/mp4"></video>
+<video width="800px" controls src="media/les-arguments-des-fonctions.mp4" type="video/mp4"></video>
 
-1. Les arguments: 
++++
 
-  <video width="800px" controls src="https://youtu.be/8hLlyUbXZ3U" type="video/mp4"></video>
+1. [Les arguments](https://youtu.be/8hLlyUbXZ3U)
+1. [Les clôtures](https://youtu.be/msoWN4wSplM)
+1. [La syntaxe lambda](youtu.be/Rsu9O1soTsA)
+1. [Les générateurs](youtu.be/DqYM_XMVtKw)
 
-1. Les clôtures: 
+<!-- bien sûr ça marche pas car la page est une vraie page web
+     mais même avec /embed ajouté non plus
+     on dirait bien que YT fait tout pour qu'on ne puisse pas faire comme ça
 
-  <video width="800px" controls src="https://youtu.be/msoWN4wSplM" type="video/mp4"></video>
+<video width="800px" controls src="https://youtu.be/8hLlyUbXZ3U" type="video/mp4"></video>
 
-1. La syntaxe lambda: 
+<video width="800px" controls src="https://youtu.be/msoWN4wSplM" type="video/mp4"></video>
 
-  <video width="800px" controls src="https://youtu.be/Rsu9O1soTsA" type="video/mp4"></video>
+<video width="800px" controls src="https://youtu.be/Rsu9O1soTsA" type="video/mp4"></video>
 
-1. Les générateurs: 
-
-  <video width="800px" controls src="https://youtu.be/DqYM_XMVtKw" type="video/mp4"></video>
+<video width="800px" controls src="https://youtu.be/DqYM_XMVtKw" type="video/mp4"></video>
+-->
 
 +++
 
