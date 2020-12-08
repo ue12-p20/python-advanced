@@ -38,10 +38,33 @@ le programme pour aujourd'hui
 
 +++
 
-## supports
+## support PDF
 
-* une [présentation de type slides au format pdf](media/les-fonctions.pdf)
-* une [vidéo sur le passage de paramètres](media/les-arguments-des-fonctions.mp4)
+une [présentation de type slides au format pdf](media/les-fonctions.pdf)
+
++++
+
+## vidéos
+
+1. une vidéo sur le passage de paramètres
+
+  <video width="800px" controls src="media/les-arguments-des-fonctions.mp4" type="video/mp4"></video>
+
+1. Les arguments: 
+
+  <video width="800px" controls src="https://youtu.be/8hLlyUbXZ3U" type="video/mp4"></video>
+
+1. Les clôtures: 
+
+  <video width="800px" controls src="https://youtu.be/msoWN4wSplM" type="video/mp4"></video>
+
+1. La syntaxe lambda: 
+
+  <video width="800px" controls src="https://youtu.be/Rsu9O1soTsA" type="video/mp4"></video>
+
+1. Les générateurs: 
+
+  <video width="800px" controls src="https://youtu.be/DqYM_XMVtKw" type="video/mp4"></video>
 
 +++
 
