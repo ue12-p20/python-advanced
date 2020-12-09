@@ -54,8 +54,8 @@ une [présentation de type slides au format pdf](media/les-fonctions.pdf)
 
 1. [Les arguments](https://youtu.be/8hLlyUbXZ3U)
 1. [Les clôtures](https://youtu.be/msoWN4wSplM)
-1. [La syntaxe lambda](youtu.be/Rsu9O1soTsA)
-1. [Les générateurs](youtu.be/DqYM_XMVtKw)
+1. [La syntaxe lambda](https://youtu.be/Rsu9O1soTsA)
+1. [Les générateurs](https://youtu.be/DqYM_XMVtKw)
 
 <!-- bien sûr ça marche pas car la page est une vraie page web
      mais même avec /embed ajouté non plus
