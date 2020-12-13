@@ -16,8 +16,12 @@ Index
    3-11-pep008
    4-11-iterations-1
    4-12-iterations-2
-   5-11-classes.md
-   5-12-dunder-specials.md
-   
+   5-11-classes
+   5-12-dunder-specials
+   6-00-intro
+   7-10-regexps
+   7-20-generators
+   7-30-inheritance
+
 Licence CC BY-NC-ND - Thierry Parmentelat
 

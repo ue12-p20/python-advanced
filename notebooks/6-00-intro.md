@@ -20,7 +20,7 @@ rise:
 version: '1.0'
 ---
 
-# Cours 6/9
+# cours 6/9 : fonctions
 
 +++ {"tags": []}
 

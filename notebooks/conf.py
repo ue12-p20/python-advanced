@@ -44,8 +44,8 @@ ipysphinx_input_toggle = True
 ipysphinx_output_toggle = True
 html_theme = "sphinx_rtd_theme" 
 html_title = "intro à Python" 
-project = "Python numérique"
-author = "Thierry Parmentelat & Valérie Roy"
+project = "Python avancé"
+author = "Thierry Parmentelat"
 html_theme_options = {
     'display_version': False,
 }

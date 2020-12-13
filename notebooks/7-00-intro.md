@@ -10,8 +10,7 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-nbhosting:
-  title: intro cours 7/9
+notebookname: intro cours 7/9
 rise:
   autolaunch: true
   slideNumber: c/t
@@ -30,9 +29,12 @@ rise:
 
 * aujourd'hui nous faisons des approfondissements
 
-  * itérations : les générateurs
+  * chaines de caractères : les expressions régulières (23 slides)
+    * exercices
+  * itérations : les générateurs (17 slides)
     * exo : nombres premiers
-  * classes : l'héritage
+    * TP : le problème de reines
+  * classes : l'héritage (38 slides)
     * TP : un langage d'expressions
 
 +++

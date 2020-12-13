@@ -28,4 +28,6 @@ ipypublish[sphinx]
 sphinx-rtd-theme
 jupyter_client
 calysto_bash
+# pin panflute to avoid this mysterious-looking error in readthedocs build
+# TypeError: ('invalid api version', [1, 17, 0, 5])
 panflute==1.12
