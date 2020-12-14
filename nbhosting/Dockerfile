@@ -11,6 +11,6 @@ RUN true \
  && pip install -U nbautoeval \
  && pip install -U ipythontutor \
  && pip install rise --pre \
- && pip install numpy pandas pandas \
+ && pip install numpy pandas matplotlib \
  && apt-get install -y graphviz && pip install graphviz \
  && true
