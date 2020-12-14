@@ -28,3 +28,4 @@ ipypublish[sphinx]
 sphinx-rtd-theme
 jupyter_client
 calysto_bash
+panflute==1.12
