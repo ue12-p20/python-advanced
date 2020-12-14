@@ -22,7 +22,7 @@ source_suffix = {
 
 exclude_patterns = ['_build', 'build', '**.ipynb_checkpoints']
 
-extensions = ['ipypublish.sphinx.notebook', 'ipypublish.sphinx.gls', 'sphinx.ext.mathjax', 'sphinxcontrib.bibtex', 'sphinx.ext.todo']
+extensions = ['ipypublish.sphinx.notebook', 'ipypublish.sphinx.gls', 'sphinx.ext.mathjax', 'sphinx.ext.todo']
 
 ### where to find our custom material
 # conf file itself
