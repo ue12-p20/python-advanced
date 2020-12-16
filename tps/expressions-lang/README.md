@@ -17,6 +17,15 @@ notebookname: 'TP: langage d''expressions'
 
 +++
 
+## les testeurs
+
+Vous pourrez utiliser `pytest` pour tester votre code avec les deux tests unitaires suivants
+
+* v1: https://github.com/ue12/python-advanced/blob/main/tps/expressions-lang/test_expressions.py
+* v2: https://github.com/ue12/python-advanced/blob/main/tps/expressions-lang/test_expressionsv2.py
+
++++
+
 ## rappel
 
 On rappelle qu'en programmation, on distingue entre :

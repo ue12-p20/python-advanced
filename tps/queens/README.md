@@ -1,7 +1,6 @@
 ---
 jupytext:
   cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  formats: md:myst
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -14,6 +13,18 @@ notebookname: 'TP: les reines'
 ---
 
 # le problème des reines
+
++++
+
+## modalités (1)
+
++++
+
+### sur nbhosting
+
+vous pouvez commencer à travailler dans le notebook - en faisant bien attention à tester **votre code** et pas celui qui est fourni avec le TP
+
+une fois que vous aurez écrit les reines et les tours, on vous invitera (voir la section modalités (2)) à vous installer en local sur votre ordi, pour réorganiser votre travail, et pouvoir tester.
 
 +++
 
@@ -46,8 +57,11 @@ par le tuple `(0, 4, 1, 2, 3)` qui donne les coordonnées en Y dans les colonnes
 ### ce qu'on doit pouvoir faire
 
 ```{code-cell} ipython3
+# on importe le code de démonstration
 from rooks_and_queens import rooks
+```
 
+```{code-cell} ipython3
 r3 = rooks(3)
 
 # une première solution
@@ -70,6 +84,14 @@ next(r3)
 
 for position in r3:
     print(position)    
+```
+
+```{code-cell} ipython3
+# votre code pour définir rooks
+# vous pouvez par exemple
+# monter cette cellule en dessous de l'import
+def rooks():
+    ...
 ```
 
 ### à quoi ça ressemble ?
@@ -114,6 +136,50 @@ for p in queens(5):
 for p in queens(6):
     print(p)
 ```
+
+```{code-cell} ipython3
+# votre code pour définir queens
+def queens():
+    ...
+```
+
+## modalités (2)
+
++++
+
+### pour travailler en local
+
+on vous fournit un fichier de test pour valider votre code; c'est un exercice pour commencer à utiliser un framework de test (ici on va utiliser `pytest`)
+
+* téléchargez ce notebook au format .ipynb
+* [téléchargez ce lien](https://github.com/ue12/python-advanced/blob/main/tps/queens/test_rooks_and_queens.py) et sauvez-le dans `test_rooks_and_queens.py`
+* dans le même dossier, écrivez votre code dans `rooks_and_queens.py`
+
++++
+
+avec ce setup
+* depuis le notebook, quand vous importez `rooks_and_queens`, vous importez votre code
+* et depuis le terminal, si vous exécutez (dans le dossier en question bien sûr)
+  
+  ```bash
+  # une seule fois suffit bien sûr
+  pip install pytest
+  
+  # et ensuite pour tester
+  pytest
+  ```
+  
+  alors vous exécutez les tests qui sont définis dans ce fichier de tests unitaires
+
++++
+
+l'idée générale, c'est d'utiliser un workflow classique, qui consiste en ceci :
+
+* vous commencez à travailler directement dans le notebook
+* une fois que le code marche raisonnablement, vous extrayez votre code pour le ranger dans un module Python normal
+* que vous pouvez importer depuis le notebook, toutes les visualisations continuent à fonctionner
+* et en plus comme ça le code devient réutilisable - depuis un autre notebook, ou depuis un programme classique
+* et en plus on peut le tester facilement
 
 +++ {"tags": ["level_intermediate"]}
 
