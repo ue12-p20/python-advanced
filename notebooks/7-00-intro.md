@@ -44,3 +44,11 @@ rise:
 comme toujours dans 
 
 https://github.com/ue12/python-advanced-solutions
+
++++
+
+## les supports
+
+je vous rappelle aussi que vous avez les supports en ligne ici
+
+https://ue12-python-advanced.readthedocs.io/en/latest/index.html
