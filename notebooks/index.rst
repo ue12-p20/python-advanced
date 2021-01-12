@@ -22,6 +22,7 @@ Index
    7-10-regexps
    7-20-generators
    7-30-inheritance
+   8-10-imports-sources
 
 Licence CC BY-NC-ND - Thierry Parmentelat
 

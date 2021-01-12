@@ -60,10 +60,15 @@ def tracks(coursedir):
              'notebooks/6-90*md',
              'notebooks/7-[12]*.md',
              'tps/queens/README.md',
+             ),
+            ('8/9: imports & organisation du code',
+             'quiz/8*.md',
+             'notebooks/8-00*.md',
              'notebooks/7-3*.md',
              'tps/expressions-lang/README.md',
+             'tps/auctions/README.md',
+             'notebooks/8-[12]*.md',
              ),
-            ('8/9: ???', 'quiz/8*.md', 'notebooks/8-*.md'),
             ('9/9: ???', 'quiz/9*.md', 'notebooks/9-*.md'),
         ])]
 
