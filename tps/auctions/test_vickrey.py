@@ -67,7 +67,7 @@ class TestVickrey(unittest.TestCase):
         )
         cli.type(40)
         self.assertEqual(
-            'Winner is bob. Winning bid is 40.',
+            'Winner is carol. Winning bid is 40.',
             cli.get_displayed()[-1]
         )
 
