@@ -15,7 +15,7 @@ notebookname: imports et organisation du code
 
 # rendus Python avancé - addendum
 
-quelques ajouts/précisions par rapport à l'énoncé
+quelques ajouts/précisions par rapport à l'[énoncé original](https://github.com/ue12/python-advanced-evaluation)
 
 ## vidéo
 
