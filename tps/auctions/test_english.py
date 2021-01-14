@@ -79,22 +79,6 @@ class TestEnglish(unittest.TestCase):
             cli.get_displayed()
         )
         cli.type(None)
-        # Round 3
-        self.assertEqual(
-            ['Standing bid is 45. alice bids:'],
-            cli.get_displayed()
-        )
-        cli.type(None)
-        self.assertEqual(
-            ['Standing bid is 45. bob bids:'],
-            cli.get_displayed()
-        )
-        cli.type(None)
-        self.assertEqual(
-            ['Standing bid is 45. carol bids:'],
-            cli.get_displayed()
-        )
-        cli.type(None)
         self.assertEqual(
             'Winner is alice. Winning bid is 45.',
             cli.get_displayed()[-1]
