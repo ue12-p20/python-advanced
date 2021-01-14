@@ -1,36 +1,18 @@
 from utils import Cli
 
+from auction import Auction
 
-class EnglishAuction():
+class EnglishAuction(Auction):
 
-    def __init__(self, cli=None):
-        self.cli = cli if cli else Cli()
+    type = "English"
 
-    def play(self):
-        # Input opening bid
-        self.cli.display('Started auction of type: English')
-        opening_bid = self.cli.prompt('Please enter the opening bid:')
-        opening_bid = int(opening_bid)
-        self.cli.display(f"Opening bid is: {opening_bid}")
-
-        # Input bidders
-        bidders = []
-        while True:
-            bidder = self.cli.prompt(
-                "Enter bidder (enter nothing to move on):"
-            )
-            if not bidder:
-                break
-            bidders.append(bidder)
-        self.cli.display(f"\nBidders are: {', '.join(bidders)}")
-
-        # Collect bids
-        standing_bid = opening_bid
+    def collect_bids(self):
+        standing_bid = self.opening_bid
         winner = None
         passed = 0
         last_bidder = None
         while not winner:
-            for bidder in bidders:
+            for bidder in self.bidders:
                 bid = self.cli.prompt(
                     f"\nStanding bid is {standing_bid}. {bidder} bids:"
                 )
@@ -42,13 +24,11 @@ class EnglishAuction():
                     last_bidder = bidder
                 else:
                     passed += 1
-                    if passed >= len(bidders)-1:
+                    if passed >= len(self.bidders)-1:
                         winner = last_bidder
                         break
 
-        # Display winner
-        self.cli.display("\n~~~~~~~~\n")
-        self.cli.display(f"Winner is {winner}. Winning bid is {standing_bid}.")
+        return winner, standing_bid
 
 
 if __name__ == "__main__":

@@ -1,44 +1,23 @@
 from utils import Cli
 
+from auction import Auction
 
-class BlindAuction():
+class BlindAuction(Auction):
 
-    def __init__(self, cli=None):
-        self.cli = cli if cli else Cli()
+    type = "Blind"
 
-    def play(self):
-        # Input opening bid
-        self.cli.display('Started auction of type: Blind')
-        opening_bid = self.cli.prompt('Please enter the opening bid:')
-        opening_bid = int(opening_bid)
-        self.cli.display(f"Opening bid is: {opening_bid}")
-
-        # Input bidders
-        bidders = []
-        while True:
-            bidder = self.cli.prompt(
-                "Enter bidder (enter nothing to move on):"
-            )
-            if not bidder:
-                break
-            bidders.append(bidder)
-        self.cli.display(f"\nBidders are: {', '.join(bidders)}")
-
-        # Collect bids
-        standing_bid = opening_bid
+    def collect_bids(self):
+        standing_bid = self.opening_bid
         winner = None
-        for bidder in bidders:
+        for bidder in self.bidders:
             bid = self.cli.prompt(
-                f"\nOpening bid is {opening_bid}. {bidder} bids:"
+                f"\nOpening bid is {self.opening_bid}. {bidder} bids:"
             )
             bid = int(bid)
             if bid > standing_bid:
                 standing_bid = bid
                 winner = bidder
-
-        # Display winner
-        self.cli.display("\n~~~~~~~~\n")
-        self.cli.display(f"Winner is {winner}. Winning bid is {standing_bid}.")
+        return winner, standing_bid
 
 
 if __name__ == "__main__":
