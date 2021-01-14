@@ -1,12 +1,21 @@
 from utils import Cli
 
+from auction import Auction
 
-class VickreyAuction():
-    def __init__(self, cli=None):
-        self.cli = cli if cli else Cli()
+class VickreyAuction(Auction):
 
-    def play(self):
-        pass
+    type = "Vickrey"
+
+    def collect_bids(self):
+        bids = []
+        for bidder in self.bidders:
+            bids.append(
+                (bidder,
+                 self.cli.prompt(
+                 f"\nOpening bid is {self.opening_bid}. {bidder} bids:"
+            )))
+        bids.sort(key=lambda t: t[1])
+        return bids[-1][0], bids[-2][1]
 
 
 if __name__ == "__main__":
