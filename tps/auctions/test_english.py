@@ -84,6 +84,60 @@ class TestEnglish(unittest.TestCase):
             cli.get_displayed()[-1]
         )
 
+    def test_auction2(self):
+        cli = make_auction(EnglishAuction)
+        cli.type('30')
+        cli.type('alice')
+        cli.type('bob')
+        cli.type('carol')
+        cli.type(None)
+        # Round 1
+        self.assertIn(
+            'Standing bid is 30. alice bids:',
+            cli.get_displayed()
+        )
+        cli.type(35)
+        self.assertEqual(
+            ['Standing bid is 35. bob bids:'],
+            cli.get_displayed()
+        )
+        cli.type(40)
+        self.assertEqual(
+            ['Standing bid is 40. carol bids:'],
+            cli.get_displayed()
+        )
+        cli.type(None)
+        # Round 2
+        self.assertEqual(
+            ['Standing bid is 40. alice bids:'],
+            cli.get_displayed()
+        )
+        cli.type(45)
+        self.assertEqual(
+            ['Standing bid is 45. bob bids:'],
+            cli.get_displayed()
+        )
+        cli.type(None)
+        self.assertEqual(
+            ['Standing bid is 45. carol bids:'],
+            cli.get_displayed()
+        )
+        cli.type(50)
+        self.assertEqual(
+            ['Standing bid is 50. alice bids:'],
+            cli.get_displayed()
+        )
+        cli.type(None)
+        self.assertEqual(
+            ['Standing bid is 50. bob bids:'],
+            cli.get_displayed()
+        )
+        cli.type(None)
+        self.assertEqual(
+            'Winner is carol. Winning bid is 50.',
+            cli.get_displayed()[-1]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
