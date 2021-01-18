@@ -1,0 +1,17 @@
+import graphviz
+
+tree = graphviz.Digraph(engine='dot')
+tree.edge('v', 'v1')
+tree.edge('v1', 'v11')
+tree.edge('v1', 'v12')
+tree.edge('v11', 'v111')
+tree.edge('v11', 'v112')
+tree.edge('v12', 'v121')
+tree.edge('v12', 'v122')
+tree.edge('v', 'v2')
+tree.edge('v2', 'v21')
+tree.edge('v2', 'v22')
+tree.edge('v21', 'v211')
+tree.edge('v21', 'v212')
+tree.edge('v22', 'v221')
+tree.edge('v22', 'v222')
