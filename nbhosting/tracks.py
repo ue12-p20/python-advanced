@@ -73,7 +73,11 @@ def tracks(coursedir):
              'notebooks/8-00*.md',
              'tps/expressions-lang/README.md',
              'notebooks/8-1*.md',
-             'notebooks/9-*.md',
+             'notebooks/9-00.md',
+            ),
+            ('optionnel',
+             'notebooks/9-1*.md',
+             'tps/metro/README.md',
              ),
         ])]
 
