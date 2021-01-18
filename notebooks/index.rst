@@ -23,6 +23,8 @@ Index
    7-20-generators
    7-30-inheritance
    8-10-imports-sources
+   9-10-argparse
+   9-11-properties
 
 Licence CC BY-NC-ND - Thierry Parmentelat
 
