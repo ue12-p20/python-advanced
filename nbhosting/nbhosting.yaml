@@ -1,0 +1,97 @@
+tracks:
+- description: "Python avanc\xE9"
+  id: python
+  name: "Python avanc\xE9"
+  sections:
+  - name: '1/9: jeux'
+    notebooks:
+    - notebooks/1-01-snake.md
+    - tps/games/README.md
+  - name: '2/9: types de base'
+    notebooks:
+    - quiz/2-snake.md
+    - notebooks/2-00-intro.md
+    - notebooks/2-01-numbers.md
+    - notebooks/2-02-containers-1.md
+    - notebooks/2-03-strings.md
+    - notebooks/2-04-files.md
+    - notebooks/2-09-exos.md
+  - name: '3/9: hash tables'
+    notebooks:
+    - quiz/3-base.md
+    - notebooks/3-00-intro.md
+    - notebooks/2-09-exos.md
+    - notebooks/2-05-containers-2.md
+    - notebooks/3-11-pep008.md
+    - tps/dijkstra/README.md
+    - notebooks/3-90-exos.md
+  - name: "4/9: it\xE9rations"
+    notebooks:
+    - quiz/4-hashes.md
+    - notebooks/4-00-intro.md
+    - tps/dijkstra/README.md
+    - notebooks/4-11-iterations-1.md
+    - notebooks/4-90-exos.md
+  - name: "5/9: it\xE9rations et classes"
+    notebooks:
+    - quiz/5-iters.md
+    - notebooks/5-00-intro.md
+    - notebooks/4-90-exos.md
+    - notebooks/4-12-iterations-2.md
+    - notebooks/4-91-exos2.md
+    - notebooks/5-11-classes.md
+    - notebooks/5-12-dunder-specials.md
+    - tps/students/README.md
+    - notebooks/5-90-exos.md
+  - name: '6/9: fonctions'
+    notebooks:
+    - quiz/6-classes.md
+    - notebooks/6-00-intro.md
+    - notebooks/6-90-exos.md
+  - name: '7/9: approfondissements'
+    notebooks:
+    - quiz/7-functions.md
+    - notebooks/7-00-intro.md
+    - notebooks/6-90-exos.md
+    - notebooks/7-10-regexps.md
+    - notebooks/7-11-exos-regexp.md
+    - notebooks/7-20-generators.md
+    - notebooks/7-21-exos-generators.md
+    - tps/queens/README.md
+  - name: '8/9: imports & organisation du code'
+    notebooks:
+    - quiz/8-regexp-generator.md
+    - notebooks/8-00-intro.md
+    - notebooks/7-30-inheritance.md
+    - tps/auctions/README.md
+    - notebooks/8-20-eval-addendum.md
+  - name: "9/9: \xE9pilogue"
+    notebooks:
+    - quiz/9-inheritance.md
+    - notebooks/8-00-intro.md
+    - tps/expressions-lang/README.md
+    - notebooks/8-10-imports-sources.md
+  - name: optionnel
+    notebooks:
+    - notebooks/9-10-argparse.md
+    - notebooks/9-11-properties.md
+    - tps/metro/README.md
+- description: "Cours du S2"
+  id: s2
+  name: "S2"
+  sections:
+  - name: Notebooks interactifs
+    notebooks:
+    - "a-*.md"
+  - name: Python asynchrone
+    notebooks:
+    - "b-*.md"
+
+static-mappings: []
+
+builds:
+- name: handouts
+  directory: notebooks
+  script: |
+    pip install jupyter-book
+    jupyter-book build .
