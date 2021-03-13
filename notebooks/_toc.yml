@@ -1,0 +1,46 @@
+- file: 1-01-snake
+- part: "types de base"
+  chapters:
+  - file: 2-01-numbers
+  - file: 2-02-containers-1
+  - file: 2-03-strings
+  - file: 2-04-files
+  - file: 2-05-containers-2
+- part: "présentation"
+  chapters:
+  - file: 3-11-pep008
+- part: "itérations"
+  chapters:
+  - file: 4-11-iterations-1
+  - file: 4-12-iterations-2
+- part: "classes"
+  chapters:
+  - file: 5-11-classes
+  - file: 5-12-dunder-specials
+- part: "fonctions"
+  chapters:
+  - file: 6-00-intro
+- part: "regexps"
+  chapters:
+  - file: 7-10-regexps
+- part: "générateurs"
+  chapters:
+  - file: 7-20-generators
+- part: "héritage"
+  chapters:
+  - file: 7-30-inheritance
+- part: "organisation des sources"
+  chapters:
+  - file: 8-10-imports-sources
+- part: "divers"
+  chapters:
+  - file: 9-10-argparse
+  - file: 9-11-properties
+- part: "notebooks interactifs"
+  chapters:
+  - file: a-c3-notebooks-interactifs
+  - file: a-c4-animations-matplotlib
+  - file: a-c5-bokeh-et-al
+  - file: a-c6-fourier-k3d
+  - file: a-x1-taylor
+  - file: a-x2-coronavirus
