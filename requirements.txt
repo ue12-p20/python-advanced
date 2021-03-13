@@ -10,6 +10,7 @@ ipythontutor
 numpy
 pandas
 matplotlib
+plotly
 
 # jupyter extensions
 #
