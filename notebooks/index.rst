@@ -25,6 +25,12 @@ Index
    8-10-imports-sources
    9-10-argparse
    9-11-properties
+   a-00-intro
+   a-c3-notebooks-interactifs
+   a-c4-animations-matplotlib
+   a-c5-bokeh-et-al
+   a-c6-fourier-k3d
+   a-x1-taylor
+   a-x2-coronavirus
 
 Licence CC BY-NC-ND - Thierry Parmentelat
-

@@ -82,10 +82,10 @@ tracks:
   sections:
   - name: Notebooks interactifs
     notebooks:
-    - "a-*.md"
+    - "notebooks/a-*.md"
   - name: Python asynchrone
     notebooks:
-    - "b-*.md"
+    - "notebooks/b-*.md"
 
 static-mappings: []
 
