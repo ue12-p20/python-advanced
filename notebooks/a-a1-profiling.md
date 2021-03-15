@@ -104,15 +104,18 @@ pour chaque fonction on va trouver
 * `tottime` : le **temps CPU** pendant laquelle **la fonction a eu le CPU**
 * `cumtime` : le **temps CPU** pendant laquelle **la fonction ou une fonction appelée par elle**, a eu le CPU
 
-ainsi dans notre exemple, la fonction `main` a un `cumtime` quasi égal à celui de `fibo` (parce que pendant tout le temps on est dans une , mais un temps "en propre" quasi nul
+ainsi dans notre exemple, la fonction `main` a un `cumtime` quasi égal
+à celui de `fibo` (parce que pendant tout le temps on est dans `fibo`,
+on est aussi indirectement dans `main`) , mais un temps "en propre"
+quasi nul
 
 +++ {"tags": ["level_intermediate"]}
 
-notez la subtilité, ici on ***parle de temps CPU, pas de temps ressenti**
+notez la subtilité, ici on **parle de temps CPU, pas de temps ressenti**
 
 c'est quoi la différence, me direz-vous ? 
 
-imaginez une fonction qui attend un paquet en provenanve du réseau
+imaginez une fonction qui attend un paquet en provenance du réseau
 
 le temps ressenti (en anglais on parle de *wallclock time*) c'est basé sur l'heure usuelle; on va mesurer le temps ressenti comme la différence entre l'heure à laquelle la fonction commence son travail et celle où elle le finit; si le paquet réseau met 1 s à arriver, le temps ressenti pour exécuter la fonction c'est 1s
 
@@ -124,7 +127,8 @@ le temps CPU au contraire, c'est lié au nombre de cycles pendant lesquels la fo
 
 +++
 
-pour trier selon une colonne, on ajoute encore l'option -s, pour *sort
+pour trier selon une colonne, on ajoute encore l'option `-s`, (s comme
+*sort* évidemment)
 
 ```{code-cell} ipython3
 # pour trier selon le nombre d'appels - la colonne 'ncalls' 
