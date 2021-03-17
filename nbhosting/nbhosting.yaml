@@ -93,7 +93,7 @@ builds:
   - id: handouts
     name: static html
     description: searchable static html as produced by jupyter-book
-  directory: notebooks
-  script: |
-    pip install jupyter-book
-    jupyter-book build .
+    directory: notebooks
+    script: |
+      pip install jupyter-book
+      jupyter-book build .
