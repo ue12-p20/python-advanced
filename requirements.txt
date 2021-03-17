@@ -11,6 +11,10 @@ numpy
 pandas
 matplotlib
 plotly
+chart_studio
+bokeh
+k3d
+autograd
 
 # jupyter extensions
 #

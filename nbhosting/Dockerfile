@@ -11,6 +11,6 @@ RUN true \
  && pip install -U nbautoeval \
  && pip install -U ipythontutor \
  && pip install rise --pre \
- && pip install numpy pandas matplotlib \
+ && pip install numpy pandas matplotlib chart_studio bokeh k3d autograd \
  && apt-get install -y graphviz && pip install graphviz \
  && true
