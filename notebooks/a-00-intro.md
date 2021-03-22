@@ -35,6 +35,10 @@ rise:
 
 ## les supports
 
-pour rappel, vous avez les supports en ligne ici
+* pour rappel, vous avez les supports en ligne ici  
+  https://ue12-python-advanced.readthedocs.io/en/latest/index.html
 
-https://ue12-python-advanced.readthedocs.io/en/latest/index.html
+* et aussi ici (c'est **nouveau**, c'est toujours le même contenu, mais présenté d'une autre façon)  
+  https://nbhosting.inria.fr/builds/ue12-python-advanced/handouts/latest/
+  
+notez que ces deux variantes sont ***cherchables***
