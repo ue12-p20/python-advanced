@@ -38,9 +38,11 @@
   - file: 9-11-properties
 - part: "notebooks interactifs"
   chapters:
+  - file: a-a1-profiling
   - file: a-c3-notebooks-interactifs
   - file: a-c4-animations-matplotlib
   - file: a-c5-bokeh-et-al
   - file: a-c6-fourier-k3d
   - file: a-x1-taylor
   - file: a-x2-coronavirus
+  - file: a-x3-potentials
