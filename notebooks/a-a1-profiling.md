@@ -9,13 +9,8 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-notebookname: profiling et al
-rise:
-  autolaunch: true
-  slideNumber: c/t
-  start_slideshow_at: selected
-  theme: sky
-  transition: cube
+nbhosting:
+  title: profiling et al
 ---
 
 # étude de performances

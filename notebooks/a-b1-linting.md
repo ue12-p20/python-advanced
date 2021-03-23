@@ -9,13 +9,8 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-notebookname: profiling et al
-rise:
-  autolaunch: true
-  slideNumber: c/t
-  start_slideshow_at: selected
-  theme: sky
-  transition: cube
+nbhosting:
+  title: linting
 ---
 
 # Qualité du code
@@ -26,7 +21,7 @@ Après avoir écrit et optimisé un module Python, vous souhaitez le distribuer 
 
 +++
 
-On ne va pas se le cacher, si quelqu'un prétend qu'il documente et commente au fur et à mesure de l'écriture du code, **il ment**. Généralement, ça fonctionne par tâtonnements, donc on est pas sûr que le code final ressemblera à notre premier jet (même plutôt sûrs que ce sera assez différent). Heureusement,les outils de **linting** sont là pour nous aider à faire un grand coup de ménage avant de distribuer le code.  
+On ne va pas se le cacher, si quelqu'un prétend qu'il documente et commente au fur et à mesure de l'écriture du code, **il ment**. Généralement, ça fonctionne par tâtonnements, donc on est pas sûr que le code final ressemblera à notre premier jet (même plutôt sûrs que ce sera assez différent). Heureusement,les outils de **linting** sont là pour nous aider à faire un grand coup de ménage avant de distribuer le code.
 
 +++
 
@@ -51,19 +46,21 @@ Le *linting* c'est une analyse du code comme texte cette fois. Elle a notamment 
 
 Il existe plusieurs outils de *linting* pour Python. Aujourd'hui le choix se porte sur `pylint`. On peut l'installer grâce à VSCode :
 
- - Ouvrez la palette (Ctrl/Cmd + Maj + P) ;
- - Tapez `linter` dans la barre de recherche, et selectionnez `Python: Select Linter` ; 
- - Choisissez `pylint` (et remarquer les autres linter disponibles) et laissez-vous guider si vous avez besoin de l'installer. 
+ - ouvrez la palette (Ctrl/Cmd + Maj + P) ;
+ - tapez `python lint` dans la barre de recherche, et selectionnez `Python: Select Linter` ; 
+ - choisissez `pylint` (et remarquer les autres linter disponibles) et laissez-vous guider si vous avez besoin de l'installer. 
 
-Si vous ouvrez maintenant un fichier Python (au pif de votre évaluation du S1) vous verrez des "zigouigouis" (c'est le terme technique idoine) apparaître sous certains fragments de code. En approchant la souris du code souligné, un pop-up apparaît et vous explique le problème. 
+Si vous ouvrez maintenant un fichier Python (au pif de votre évaluation du S1) vous verrez des "zigouigouis" (c'est le terme technique idoine) apparaître sous certains fragments de code. En approchant la souris du code souligné, un pop-up apparaît et vous explique le problème.
+
+![](media/vscode-linter.png)
 
 +++
 
 ### En ligne de commande
 
-`pylint` peut aussi être utilisé en ligne de commande comme suit : 
+`pylint` peut aussi être utilisé en ligne de commande comme suit :
 
-```{code-cell} ipython3
+```{code-cell}
 ! pylint fibo.py
 ```
 
@@ -86,7 +83,7 @@ pylint puzzle8/*.py
 dans votre terminal. 
 Prenez un peu de temps pour essayer d'améliorer votre note. :) Arriver à 10/10 peut prendre du temps.
 
-+++
++++ {"tags": ["level_intermediate"]}
 
 ## Avancé -- Génération d'un fichier de configuration
 
