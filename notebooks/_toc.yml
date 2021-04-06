@@ -56,3 +56,4 @@
   - file: b-s3-av-slides
   - file: b-s4-async-with-for
   - file: b-s6-av-event-loops
+  - file: b-s7-libraries
