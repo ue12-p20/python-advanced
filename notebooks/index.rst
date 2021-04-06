@@ -39,5 +39,6 @@ Index
    b-s2-av-slides
    b-s3-av-slides
    b-s4-async-with-for
+   b-s6-av-event-loops
 
 Licence CC BY-NC-ND - Thierry Parmentelat

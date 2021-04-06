@@ -1,14 +1,16 @@
 ---
 jupytext:
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.11.1
 kernelspec:
   display_name: Python 3
   language: python
   name: python3
+nbhosting:
+  title: http avec async for et async with
 ---
 
 <span style="float:left;">Licence CC BY-NC-ND</span><span style="float:right;">Thierry Parmentelat<img src="media/inria-25-alpha.png" style="display:inline"></span><br/>
@@ -256,4 +258,24 @@ async def bar():
 ````
 def bar():
     await foo()
+````
+
++++
+
+**au *toplevel* (directement au prompt dans la *repl*)**
+
++++ {"cell_style": "split", "slideshow": {"slide_type": "fragment"}}
+
+**autorisé** dans IPython et notebooks
+
+````
+await foo()
+````
+
++++ {"cell_style": "split", "slideshow": {"slide_type": "-"}}
+
+**pas autorisé** : dans python standard - *SyntaxError*
+
+````
+await foo()
 ````
