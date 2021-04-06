@@ -49,11 +49,11 @@
   - file: a-x3-potentials
 - part: "Python asynchrone"
   chapters:
-  - file: b-a1-os-basics
-  - file: b-s1-av-slides
-  - file: b-s1-c1-thread-safety
-  - file: b-s2-av-slides
-  - file: b-s3-av-slides
+  - file: b-01-os-basics
+  - file: b-s1-programmation-asynchrone
+  - file: b-s1-z1-thread-safety
+  - file: b-s2-examples
+  - file: b-s3-ecosysteme
   - file: b-s4-async-with-for
   - file: b-s6-av-event-loops
   - file: b-s7-libraries
