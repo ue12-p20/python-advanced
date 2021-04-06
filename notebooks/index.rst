@@ -32,5 +32,12 @@ Index
    a-c6-fourier-k3d
    a-x1-taylor
    a-x2-coronavirus
+   a-x3-potentials
+   b-a1-os-basics
+   b-s1-av-slides
+   b-s1-c1-thread-safety
+   b-s2-av-slides
+   b-s3-av-slides
+   b-s4-async-with-for
 
 Licence CC BY-NC-ND - Thierry Parmentelat

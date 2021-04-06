@@ -2,6 +2,8 @@
 # i.e. libraries used for running 
 # code in the notebooks per se
 #
+jupyter
+jupytext
 ipykernel
 ipywidgets
 nbautoeval
@@ -25,7 +27,6 @@ autograd
 #
 Sphinx>=3.2
 # 1.6 is now out
-jupytext
 # work around a nasty error that said
 # AssertionError: wrong color format 'var(--jp-mirror-editor-variable-color)'
 pygments>=2.4.1

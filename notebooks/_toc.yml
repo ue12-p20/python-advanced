@@ -47,3 +47,11 @@
   - file: a-x1-taylor
   - file: a-x2-coronavirus
   - file: a-x3-potentials
+- part: "Python asynchrone"
+  chapters:
+  - file: b-a1-os-basics
+  - file: b-s1-av-slides
+  - file: b-s1-c1-thread-safety
+  - file: b-s2-av-slides
+  - file: b-s3-av-slides
+  - file: b-s4-async-with-for

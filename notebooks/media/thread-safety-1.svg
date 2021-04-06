@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4f, 2020-05-01)"
+   sodipodi:docname="thread-safety-1.svg"
+   id="svg350"
+   version="1.1"
+   height="271px"
+   width="761px">
+  <metadata
+     id="metadata354">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:current-layer="g348"
+     inkscape:window-maximized="0"
+     inkscape:window-y="126"
+     inkscape:window-x="117"
+     inkscape:cy="257.95032"
+     inkscape:cx="622.93519"
+     inkscape:zoom="1.21682"
+     showgrid="false"
+     id="namedview352"
+     inkscape:window-height="1200"
+     inkscape:window-width="2274"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     inkscape:document-rotation="0" />
+  <defs
+     id="defs200">
+    <rect
+       x="-274.16414"
+       y="-59.670625"
+       width="157.78833"
+       height="221.88984"
+       id="rect229" />
+    <rect
+       id="rect362"
+       height="59.170626"
+       width="70.676026"
+       y="-159.93197"
+       x="218.92441" />
+  </defs>
+  <g
+     id="g348"
+     transform="translate(0.5,0.5)">
+    <rect
+       id="rect202"
+       pointer-events="none"
+       stroke="#ffffff"
+       fill="#66b2ff"
+       ry="6"
+       rx="6"
+       height="40"
+       width="120"
+       y="90"
+       x="0" />
+    <rect
+       id="rect210"
+       pointer-events="none"
+       stroke="#ffffff"
+       fill="#e6e6e6"
+       height="40"
+       width="120"
+       y="0"
+       x="160" />
+    <path
+       id="path212"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#ffffff"
+       fill="none"
+       d="M 172,0 V 40 M 268,0 v 40" />
+    <rect
+       id="rect220"
+       pointer-events="none"
+       stroke="#ffffff"
+       fill="#e6e6e6"
+       height="40"
+       width="120"
+       y="90"
+       x="160" />
+    <path
+       id="path222"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#ffffff"
+       fill="none"
+       d="m 172,90 v 40 m 96,-40 v 40" />
+    <rect
+       id="rect230"
+       pointer-events="none"
+       stroke="#ffffff"
+       fill="#d4e1f5"
+       height="40"
+       width="120"
+       y="90"
+       x="310" />
+    <path
+       id="path232"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#ffffff"
+       fill="none"
+       d="m 322,90 v 40 m 96,-40 v 40" />
+    <rect
+       id="rect240"
+       pointer-events="none"
+       stroke="#ffffff"
+       fill="#66b2ff"
+       ry="6"
+       rx="6"
+       height="40"
+       width="120"
+       y="160"
+       x="0" />
+    <rect
+       id="rect248"
+       pointer-events="none"
+       stroke="#ffffff"
+       fill="#e6e6e6"
+       height="40"
+       width="120"
+       y="160"
+       x="160" />
+    <path
+       id="path250"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#ffffff"
+       fill="none"
+       d="m 172,160 v 40 m 96,-40 v 40" />
+    <rect
+       id="rect258"
+       pointer-events="none"
+       stroke="#ffffff"
+       fill="#d4e1f5"
+       height="40"
+       width="120"
+       y="160"
+       x="310" />
+    <path
+       id="path260"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#ffffff"
+       fill="none"
+       d="m 322,160 v 40 m 96,-40 v 40" />
+    <path
+       id="path268"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#000000"
+       fill="none"
+       d="m 280,110 h 23.63" />
+    <path
+       id="path270"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#000000"
+       fill="#000000"
+       d="m 308.88,110 -7,3.5 1.75,-3.5 -1.75,-3.5 z" />
+    <path
+       id="path272"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#000000"
+       fill="none"
+       d="M 436.37,160 H 450 q 10,0 10,10 v 18 q 0,10 -10,10 h -11.63" />
+    <path
+       id="path274"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#000000"
+       fill="#000000"
+       d="m 431.12,160 7,-3.5 -1.75,3.5 1.75,3.5 z" />
+    <path
+       id="path276"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#000000"
+       fill="#000000"
+       d="m 433.12,198 7,-3.5 -1.75,3.5 1.75,3.5 z" />
+    <rect
+       id="rect278"
+       pointer-events="none"
+       stroke="#ffffff"
+       fill="#66b2ff"
+       ry="6"
+       rx="6"
+       height="40"
+       width="120"
+       y="230"
+       x="0" />
+    <rect
+       id="rect286"
+       pointer-events="none"
+       stroke="#ffffff"
+       fill="#e6e6e6"
+       height="40"
+       width="120"
+       y="230"
+       x="160" />
+    <path
+       id="path288"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#ffffff"
+       fill="none"
+       d="m 172,230 v 40 m 96,-40 v 40" />
+    <rect
+       id="rect296"
+       pointer-events="none"
+       stroke="#ffffff"
+       fill="#d4e1f5"
+       height="40"
+       width="120"
+       y="230"
+       x="310" />
+    <path
+       id="path298"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#ffffff"
+       fill="none"
+       d="m 322,230 v 40 m 96,-40 v 40" />
+    <path
+       id="path306"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#000000"
+       fill="none"
+       d="M 310,250 H 286.37" />
+    <path
+       id="path308"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="#000000"
+       fill="#000000"
+       d="m 281.12,250 7,-3.5 -1.75,3.5 1.75,3.5 z" />
+    <path
+       id="path322"
+       pointer-events="none"
+       transform="rotate(180,490,180)"
+       stroke-miterlimit="10"
+       stroke="#000000"
+       fill="none"
+       d="m 500,90 h -5 q -5,0 -5,10 v 70 q 0,10 -5,10 h -2.5 q -2.5,0 2.5,0 h 2.5 q 2.5,0 2.5,10 v 70 q 0,10 5,10 h 5" />
+    <text
+       id="text368"
+       y="29.085314"
+       x="204.95357"
+       style="font-size:32px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal'"
+       xml:space="preserve"><tspan
+         y="29.085314"
+         x="204.95357"
+         id="tspan366"
+         sodipodi:role="line">10</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal'"
+       x="207.13322"
+       y="118.33708"
+       id="text368-2"><tspan
+         sodipodi:role="line"
+         id="tspan366-4"
+         x="207.13322"
+         y="118.33708">10</tspan></text>
+    <text
+       id="text368-2-7"
+       y="117.49367"
+       x="350.42047"
+       style="font-size:32px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal'"
+       xml:space="preserve"><tspan
+         y="117.49367"
+         x="350.42047"
+         id="tspan366-4-0"
+         sodipodi:role="line">10</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal'"
+       x="207.10406"
+       y="190.67186"
+       id="text368-2-7-4"><tspan
+         sodipodi:role="line"
+         id="tspan366-4-0-8"
+         x="207.10406"
+         y="190.67186">10</tspan></text>
+    <text
+       id="text368-2-7-4-5"
+       y="190.67186"
+       x="353.10406"
+       style="font-size:32px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal'"
+       xml:space="preserve"><tspan
+         y="190.67186"
+         x="353.10406"
+         id="tspan366-4-0-8-5"
+         sodipodi:role="line">11</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal'"
+       x="208.12244"
+       y="261.71396"
+       id="text368-2-7-4-5-0"><tspan
+         sodipodi:role="line"
+         id="tspan366-4-0-8-5-9"
+         x="208.12244"
+         y="261.71396">11</tspan></text>
+    <text
+       id="text368-2-7-4-5-0-9"
+       y="261.71396"
+       x="354.12244"
+       style="font-size:32px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal'"
+       xml:space="preserve"><tspan
+         y="261.71396"
+         x="354.12244"
+         id="tspan366-4-0-8-5-9-2"
+         sodipodi:role="line">11</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:21.3333px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica, Normal';fill:#48373e"
+       x="2.3801212"
+       y="118.44492"
+       id="text205"><tspan
+         sodipodi:role="line"
+         id="tspan203"
+         x="2.3801212"
+         y="118.44492">LOAD MEM</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:21.3333px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica, Normal';fill:#48373e"
+       x="29.085304"
+       y="187.69547"
+       id="text209"><tspan
+         sodipodi:role="line"
+         id="tspan207"
+         x="29.085304"
+         y="187.69547">ADD 1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:21.3333px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica, Normal';fill:#48373e"
+       x="11.005394"
+       y="258.37149"
+       id="text213"><tspan
+         sodipodi:role="line"
+         id="tspan211"
+         x="11.005394"
+         y="258.37149">STO MEM</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:26.6667px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica, Normal'"
+       x="9.3617725"
+       y="75.106911"
+       id="text225"><tspan
+         sodipodi:role="line"
+         id="tspan223"
+         x="9.3617725"
+         y="75.106911">program</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:26.6667px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica, Normal'"
+       x="163.86284"
+       y="75.106918"
+       id="text235"><tspan
+         sodipodi:role="line"
+         id="tspan233"
+         x="163.86284"
+         y="75.106918">variable a</tspan></text>
+    <text
+       id="text235-7"
+       y="75.961281"
+       x="325.47009"
+       style="font-size:26.6667px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica, Normal'"
+       xml:space="preserve"><tspan
+         y="75.961281"
+         x="325.47009"
+         id="tspan233-7"
+         sodipodi:role="line">register</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:21.3333px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal'"
+       x="503.27213"
+       y="17.579914"
+       id="text257"><tspan
+         sodipodi:role="line"
+         id="tspan255"
+         x="503.27213"
+         y="17.579914"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.6667px;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"># en entrée, la </tspan><tspan
+         sodipodi:role="line"
+         x="503.27213"
+         y="44.24654"
+         id="tspan259"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.6667px;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"># variable a vaut 10</tspan></text>
+    <text
+       id="text257-1"
+       y="239.02478"
+       x="499.10944"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.33330000000000126px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;"
+       xml:space="preserve"><tspan
+         sodipodi:role="line"
+         id="tspan282"
+         x="499.10944"
+         y="239.02478"># en sortie, la </tspan><tspan
+         sodipodi:role="line"
+         id="tspan284"
+         x="499.10944"
+         y="265.69141"># variable a vaut <tspan
+   id="tspan2842"
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.3333px;font-family:'Courier New';-inkscape-font-specification:'Courier New, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">11</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+       x="507.05948"
+       y="184.80453"
+       id="text257-1-7"><tspan
+         sodipodi:role="line"
+         id="tspan307"
+         x="507.05948"
+         y="184.80453">a = a + 1</tspan></text>
+  </g>
+</svg>
