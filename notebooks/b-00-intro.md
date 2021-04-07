@@ -29,7 +29,7 @@ nbhosting:
 
 ## les supports
 
-comme toujours
+en version html statique cherchable 
 
-* https://ue12-python-advanced.readthedocs.io/en/latest/index.html (sphinx)
-* https://nbhosting.inria.fr/builds/ue12-python-advanced/handouts/latest (jupyter-book)
+* <a href="https://nbhosting.inria.fr/builds/ue12-python-advanced/handouts/latest" target="_">jupyter-book</a>
+* ~~https://ue12-python-advanced.readthedocs.io/en/latest/index.html (sphinx)~~ les deux dernires chapitres ne sont pas disponibles sous ce format

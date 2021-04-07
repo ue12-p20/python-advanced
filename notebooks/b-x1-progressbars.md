@@ -242,3 +242,187 @@ strict-transport-security: max-age=31536000
 vous pouvez aussi le voir en ouvrant l'URL dans chrome, l'adresse se fait récrire par quelque chose d'autre, ici justement https://www.irs.gov/forms-pubs/about-form-1040-ez
 
 mon code aurait besoin d'être adapté pour traiter ça...
+
++++
+
+## v2
+
+```{code-cell} ipython3
+import time
+from ipywidgets import Button
+```
+
++++ {"hide_input": true, "tags": []}
+
+on rajoute un bouton pour démarrer, et un affichage du temps passé
+
+dans ma solution à ce stade j'ai fait un petit refactoring en découpant ça en deux classes distinctes
+
+aussi j'ai été amené à modifier un peu la méthode de lecture; dans le notebook on faisait
+
+```python
+async for line in response.content:
+```
+
+mais si vous essayez avec cette forme de lecture vous allez constater que la montre n'avance guère...
+
+du coup je suis allé farfouiller [dans cette page](https://docs.aiohttp.org/en/stable/streams.html) pour trouver un mode de lecture plus adapté à notre cas d'usage.
+
++++
+
+<span style='background-color: #9EBC9E; padding:5px;'>↓↓↓↓↓ ↓↓↓↓↓ assurez-vous de **bien évaluer la cellule cachée** ici ↓↓↓↓↓ ↓↓↓↓↓</span>
+
+```{code-cell} ipython3
+:hide_input: false
+:tags: []
+
+class UrlDownloader:
+    
+    def __init__(self, url):
+        self.url = url
+        
+    def widget(self):
+        hbox = HBox([
+            tickbox := HTML("<span style='color:red;'>&cross;</span>"),
+            slider := FloatProgress(value=0, 
+                                description=self.name(),
+                                layout=Layout(width='100%')),
+        ])
+        self.tickbox, self.slider = tickbox, slider
+        return hbox
+
+    def name(self):
+        return self.url.split('/')[-1]
+
+    async def fetch(self):
+        total_length = 0
+        read_so_far = 0
+        async with aiohttp.ClientSession() as session:
+
+            async with session.get(self.url) as response:
+                if response.status == 200:
+                    self.tickbox.value = "<span style='color:green;'>&#10003;</span>"
+                #print(f"{url} returned status {response.status}")
+                total_length = int(response.content_length)
+                async for data in response.content.iter_chunked(1024):
+                    read_so_far += len(data)
+                    self.slider.value = 100 * (read_so_far / total_length)
+                if read_so_far == total_length:
+                    self.slider.bar_style = 'info'
+                else:
+                    self.slider.bar_style = 'danger'                    
+        return read_so_far, total_length
+
+class VisualDownloaderV2:
+    
+    def __init__(self, urls):
+        self.downloaders = {url : UrlDownloader(url) for url in urls}
+        self.task = None
+        self.button = None
+        self.status = None
+        self.active = False
+        
+    def create_dashboard(self):
+        self.button = Button(description='Start', button_style='info',
+                             layout = Layout(width='50%'))
+        self.status = HTML("---", layout = Layout(width='50%'))
+                             
+        
+        self.dashboard = VBox([
+            HBox([self.button, self.status]),
+            *(downloader.widget() for downloader in self.downloaders.values())
+        ])
+        
+        self.button.on_click(lambda change: self.start())
+        display(self.dashboard)
+
+    async def show_time(self):
+        start_time = time.time()
+        while self.active:
+            self.status.value = f"{time.time() - start_time:.3f}s"
+            await asyncio.sleep(0.05)
+        self.status.value = f"{time.time() - start_time:.3f}s"
+        return time.time() - start_time
+
+    async def download(self):
+        results = await asyncio.gather(
+          *(downloader.fetch() for downloader in self.downloaders.values()))
+        self.active = False
+        return results
+        
+    def start(self):
+        self.button.disabled = True
+        self.button.button_style = 'danger'
+        self.active = True
+        self.task = asyncio.ensure_future(
+            asyncio.gather(self.download(), self.show_time()))
+        
+    def troubleshoot(self):
+        # check self.task
+        # TODO: check if self.task is ready and in the proper state
+        print(f"{self.task.result()=}")
+        print(f"{self.task.exception()=}")
+```
+
+<span style='background-color: #9EBC9E; padding:5px;'>↑↑↑↑↑ ↑↑↑↑↑ assurez-vous de **bien évaluer la cellule cachée** ici ↑↑↑↑↑ ↑↑↑↑↑</span>
+
+```{code-cell} ipython3
+d = VisualDownloaderV2(urls)
+```
+
+```{code-cell} ipython3
+# cette cellule crée juste le dashboard
+# il faut appuyer sur le bouton pour lancer le download
+d.create_dashboard()
+```
+
+```{code-cell} ipython3
+:tags: []
+
+##### j'ai ajouté ceci pour donner du feedback 
+# arrangez-vous pour que ça donne des infos utiles au debug
+d.troubleshoot()
+```
+
+## aller plus loin
+
++++
+
+### quelques URLs de test
+
++++
+
+j'ai quelques URLs de test qui contiennent des fichiers dont la taille est une puissance de 2
+
+par exemple http://planete.inria.fr/Thierry.Parmentelat/dummy/b10 est un fichier de $2ˆ{10}=1024$
+
+ça va jusqu'à b27 qui fait donc 134217728 octets
+
+```{code-cell} ipython3
+2**27
+```
+
+```{code-cell} ipython3
+urls = [ ]
+```
+
+```{code-cell} ipython3
+d = VisualDownloaderV2(
+  [f"http://planete.inria.fr/Thierry.Parmentelat/dummy/b{i:02d}" for i in range(10, 24)]
+)
+d.create_dashboard()
+```
+
+du coup on peut voir que mon code est loin d'être parfait ...
+
+```{code-cell} ipython3
+d.troubleshoot()
+```
+
+### autres idées pour continuer
+
++++
+
+peut-être qu'à ce stade vous allez avoir envie d'ajouter un bouton Stop ... ou encore mieux un bouton suspend
+
+vous pouvez aussi imaginer sauver les urls sur disque (je ne le fais pas du tout) et voir l'impact que ça a sur les performances; c'est peut-être le moment de regarder le module `aiofiles` pour faire aussi la sauvegarde de manière asynchrone..
