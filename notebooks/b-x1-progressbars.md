@@ -1,0 +1,244 @@
+---
+jupytext:
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+nbhosting:
+  title: 'TP: progressbars'
+---
+
+```{code-cell} ipython3
+import asyncio
+```
+
+```{code-cell} ipython3
+import aiohttp
+```
+
+# TP : un downloader http avec des progressbar
+
++++
+
+On va reprendre l'idée démontrée dans la séquence sur `async with` et `async for` pour fabriquer un downloader qui peut s'occuper de plusieurs URLs à la fois et qui nous donne une idée de où on en est dans le téléchargement.
+
+Je commence par vous montrer quelques briques technologiques qui vont nous servir
+
++++
+
+## ipywidgets
+
+```{code-cell} ipython3
+from ipywidgets import FloatProgress, HTML, Layout, VBox, HBox, Valid
+```
+
+En guise de rappel par rapport à la dernière fois, voici quelques widgets de la ménagerie `ipywidgets` qui vont nous servir
+
+pour retrouver le lien vous pouvez googler juste `ipywidgets list`
+
++++
+
+### la progress bar
+
+```{code-cell} ipython3
+w1 = FloatProgress(value=0, description='file1', layout=Layout(width='100%'))
+```
+
+```{code-cell} ipython3
+display(w1)
+```
+
+```{code-cell} ipython3
+w1.value = 10
+```
+
+```{code-cell} ipython3
+w1.description
+```
+
+### la tick box
+
++++
+
+j'ai hésité entre deux options, finalement j'ai choisi `HTML` mais à vous de voir
+
+```{code-cell} ipython3
+:cell_style: split
+
+w2 = Valid(value=False); display(w2)
+```
+
+```{code-cell} ipython3
+:cell_style: split
+
+w2.value = True
+```
+
+ou alors
+
+```{code-cell} ipython3
+:cell_style: split
+
+w3 = HTML("truc"); display(w3)
+```
+
+```{code-cell} ipython3
+:cell_style: split
+
+w3.value = "bidule"
+```
+
+### les assemblages
+
++++
+
+je vous rappelle aussi qu'on peut faire des assemblages simples avec `VBox` et `HBox`, 
+d'ailleurs il n'y a pas que cette option là,
+je vous laisse regarder la doc
+
++++
+
+## ce qu'on vous demande de faire
+
+```{code-cell} ipython3
+urls = ["https://www.irs.gov/pub/irs-pdf/f1040.pdf",
+        "https://www.irs.gov/pub/irs-pdf/f1040ez.pdf",
+        "https://www.irs.gov/pub/irs-pdf/f1040es.pdf",
+        "https://www.irs.gov/pub/irs-pdf/f1040sb.pdf",
+]
+```
+
+<span style='background-color: #9EBC9E; padding:5px;'>↓↓↓↓↓ ↓↓↓↓↓ assurez-vous de **bien évaluer la cellule cachée** ici ↓↓↓↓↓ ↓↓↓↓↓</span>
+
+```{code-cell} ipython3
+:hide_input: true
+:tags: []
+
+class VisualDownloader:
+    
+    def __init__(self, urls):
+        self.urls = urls
+        self.task = None
+        
+    def name(self, url):
+        return url.split('/')[-1]
+
+    def create_dashboard(self):
+        self.tickboxes = {
+            url: HTML("<span style='color:red;'>&cross;</span>") 
+            for url in urls
+        }
+        self.sliders = {
+            url: FloatProgress(value=0, 
+                                description=self.name(url),
+                                layout=Layout(width='100%'))
+            for url in urls
+        }
+        self.dashboard = VBox(
+            [HBox([tickbox, slider])
+             for tickbox, slider in zip(self.tickboxes.values(), self.sliders.values())
+            ]
+        )
+        display(self.dashboard)
+        
+    def download(self):
+        async def fetch(url):
+            total_length = 0
+            read_so_far = 0
+            async with aiohttp.ClientSession() as session:
+                
+                async with session.get(url) as response:
+                    if response.status == 200:
+                        self.tickboxes[url].value = "<span style='color:green;'>&#10003;</span>"
+                    #print(f"{url} returned status {response.status}")
+                    total_length = int(response.content_length)
+                    async for line in response.content:
+                        read_so_far += len(line)
+                        self.sliders[url].value = 100 * (read_so_far / total_length)
+                    if read_so_far == total_length:
+                        self.sliders[url].bar_style = 'info'
+                    else:
+                        self.sliders[url].bar_style = 'danger'                    
+            return read_so_far, total_length
+        self.task = asyncio.ensure_future(
+            asyncio.gather(
+                *(fetch(url) for url in self.urls)
+            )
+        )
+        
+    def troubleshoot(self):
+        # check self.task
+        # TODO: check if self.task is ready and in the proper state
+        print(f"{self.task.result()=}")
+        print(f"{self.task.exception()=}")
+```
+
+<span style='background-color: #9EBC9E; padding:5px;'>↑↑↑↑↑ ↑↑↑↑↑ assurez-vous de **bien évaluer la cellule cachée** ici ↑↑↑↑↑ ↑↑↑↑↑</span>
+
++++
+
+Voici l'interface que j'ai implémentée dans la classe `VisualDownloader`
+
+mais vous pouvez bien entendu broder pour faire complètement autrement
+
+```{code-cell} ipython3
+d = VisualDownloader(urls)
+```
+
+```{code-cell} ipython3
+# cette cellule crée juste le dashboard
+d.create_dashboard()
+```
+
+```{code-cell} ipython3
+### et celle-ci lance le download
+d.download()
+```
+
+```{code-cell} ipython3
+:tags: []
+
+##### j'ai ajouté ceci pour donner du feedback 
+# parce que sinon pour débugger c'est très compliqué
+d.troubleshoot()
+```
+
+## quelques précisions
+
++++
+
+### codes http 300+n : redirections
+
++++
+
+il se passe un truc louche pour l'url `http://www.irs.gov/pub/irs-pdf/f1040ez.pdf`; 
+il se trouve que cette url est obsolète, mais justement c'est intéressant...
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#redirection_messages
+
+et c'est le cas justement pour l'url `http://www.irs.gov/pub/irs-pdf/f1040ez.pdf`
+
+  
+on peut le voir avec par exemple
+  
+```bash
+$ curl -i http://www.irs.gov/pub/irs-pdf/f1040ez.pdf | less
+HTTP/2 301
+content-length: 0
+location: https://www.irs.gov/forms-pubs/about-form-1040-ez
+cache-control: max-age=86400
+expires: Thu, 08 Apr 2021 06:59:48 GMT
+date: Wed, 07 Apr 2021 06:59:48 GMT
+server-timing: cdn-cache; desc=HIT
+server-timing: edge; dur=1
+strict-transport-security: max-age=31536000
+```
+  
+vous pouvez aussi le voir en ouvrant l'URL dans chrome, l'adresse se fait récrire par quelque chose d'autre, ici justement https://www.irs.gov/forms-pubs/about-form-1040-ez
+
+mon code aurait besoin d'être adapté pour traiter ça...
