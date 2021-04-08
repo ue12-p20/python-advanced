@@ -252,8 +252,6 @@ import time
 from ipywidgets import Button
 ```
 
-+++ {"hide_input": true, "tags": []}
-
 on rajoute un bouton pour démarrer, et un affichage du temps passé
 
 dans ma solution à ce stade j'ai fait un petit refactoring en découpant ça en deux classes distinctes
@@ -273,7 +271,7 @@ du coup je suis allé farfouiller [dans cette page](https://docs.aiohttp.org/en/
 <span style='background-color: #9EBC9E; padding:5px;'>↓↓↓↓↓ ↓↓↓↓↓ assurez-vous de **bien évaluer la cellule cachée** ici ↓↓↓↓↓ ↓↓↓↓↓</span>
 
 ```{code-cell} ipython3
-:hide_input: false
+:hide_input: true
 :tags: []
 
 class UrlDownloader:

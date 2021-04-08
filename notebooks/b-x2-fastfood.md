@@ -1,14 +1,16 @@
 ---
 jupytext:
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
 kernelspec:
   display_name: Python 3
   language: python
   name: python3
+nbhosting:
+  title: 'TP: le fast-food'
 ---
 
 +++ {"slideshow": {"slide_type": "-"}}
