@@ -1,42 +1,44 @@
-- file: 1-01-snake
-- part: "types de base"
+format: jb-book
+root: 1-01-snake
+parts:
+- caption: "types de base"
   chapters:
   - file: 2-01-numbers
   - file: 2-02-containers-1
   - file: 2-03-strings
   - file: 2-04-files
   - file: 2-05-containers-2
-- part: "présentation"
+- caption: "présentation"
   chapters:
   - file: 3-11-pep008
-- part: "itérations"
+- caption: "itérations"
   chapters:
   - file: 4-11-iterations-1
   - file: 4-12-iterations-2
-- part: "classes"
+- caption: "classes"
   chapters:
   - file: 5-11-classes
   - file: 5-12-dunder-specials
-- part: "fonctions"
+- caption: "fonctions"
   chapters:
   - file: 6-00-intro
-- part: "regexps"
+- caption: "regexps"
   chapters:
   - file: 7-10-regexps
-- part: "générateurs"
+- caption: "générateurs"
   chapters:
   - file: 7-20-generators
-- part: "héritage"
+- caption: "héritage"
   chapters:
   - file: 7-30-inheritance
-- part: "organisation des sources"
+- caption: "organisation des sources"
   chapters:
   - file: 8-10-imports-sources
-- part: "divers"
+- caption: "divers"
   chapters:
   - file: 9-10-argparse
   - file: 9-11-properties
-- part: "notebooks interactifs"
+- caption: "notebooks interactifs"
   chapters:
   - file: a-a1-profiling
   - file: a-b1-linting
@@ -47,7 +49,7 @@
   - file: a-x1-taylor
   - file: a-x2-coronavirus
   - file: a-x3-potentials
-- part: "Python asynchrone"
+- caption: "Python asynchrone"
   chapters:
   - file: b-01-os-basics
   - file: b-s1-programmation-asynchrone
