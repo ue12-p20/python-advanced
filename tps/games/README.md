@@ -329,8 +329,8 @@ Pour dessiner une image en pygame, deux actions sont nécessaires:
   ```
 - puis on l'affiche, en donnant les coordonnées de son coin supérieur gauche:
   ```python
-  # cette instruction va écraser ce qui se trouve en (10, 10) avec l'image
-  screen.blit(image, (10, 10))
+  # cette instruction va écraser ce qui se trouve en (100, 100) avec l'image
+  screen.blit(image, (100, 100))
   ```
   
 les images nécessaires sont disponibles ici
