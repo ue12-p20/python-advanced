@@ -538,7 +538,7 @@ f'{x:e} | {x:f} | {x:g} | {x:010.1f} | {x:.2f}'
 
 ```{code-cell} ipython3
 y = 769876.11434
-f'{x:e} | {y:f} | {x:g} | {y:010.2f} | {x:.2f}'
+f'{y:e} | {y:f} | {y:g} | {y:010.2f} | {y:.2f}'
 ```
 
 Voir aussi pour plus de détails:  
