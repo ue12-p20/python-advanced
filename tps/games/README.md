@@ -346,7 +346,7 @@ Contrairement à l'exemple précédent, nous allons devoir utilisé un mouvement
 - l'accélération de la pesanteur (quelle unité ?)
 - la vitesse de déplacement horizontale de l'oiseau (quelle unité ?)
 
-Pour cela nous allons avoir besoin d'une notion de temps. Celle-ci va nous être conné par l'objet `clock` (plûtot logique !) qui retourne à chaque appel à `tick` le nombre de millisecondes écoulées depuis la dernière invocation, soit:
+Pour cela nous allons avoir besoin d'une notion de temps. Celle-ci va nous être donné par l'objet `clock` (plûtot logique !) qui retourne à chaque appel à `tick` le nombre de millisecondes écoulées depuis la dernière invocation, soit:
 
 ```python
 # delta_ms contient le nombre de ms depuis la dernière invocation
