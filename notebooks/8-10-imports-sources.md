@@ -1,8 +1,10 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
   encoding: '# -*- coding: utf-8 -*-'
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -10,6 +12,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: imports et organisation du code
 ---
 
@@ -474,15 +479,15 @@ je peux maintenant lancer mon programme sans souci :
 
 Grâce à l'option `-e`, je **peux modifier mon code** dans le répertoire courant, ce sera bien ce code-là qui sera utilisé ; cette précision pour ceux qui penseraient que, comme on fait une installation, cela pourrait être fait par copie, mais ce n'est pas le cas, donc sauf gros changement dans le contenu, on n'a **plus besoin de refaire** le `pip install -e .`
 
-+++ {"tags": ["level_advanced"], "heading_collapsed": true}
++++ {"tags": ["level_advanced"]}
 
 #### Un `setup.py` plus raisonnable
 
-+++ {"tags": ["level_advanced"], "hidden": true}
++++ {"tags": ["level_advanced"]}
 
 Au delà de cette première utilité, `setup.py` sert à configurer plein d'aspects de votre application ; lorsque votre projet va gagner en maturité, il sera exécuté lorsque vous préparez le packaging, lorsque vous uploadez le package, et au moment d'installer (comme on vient de le voir).
 
-+++ {"tags": ["level_advanced"], "hidden": true}
++++ {"tags": ["level_advanced"]}
 
 Du coup en pratique, les besoins s'accumulent au fur et à mesure de l'avancement du projet, et on met de plus en plus d'informations dans le `setup.py`; voici, que j'essaie de mettre dans l'ordre chronologique, quelques ajouts très fréquents [reportez-vous à la doc pour une liste complète](https://setuptools.readthedocs.io/en/latest/setuptools.html#developer-s-guide) :
 
@@ -515,11 +520,11 @@ Du coup en pratique, les besoins s'accumulent au fur et à mesure de l'avancemen
 
 * etc… beaucoup d'autres réglages et subtilités autour de `setup.py` ; je conseille de prendre les choses comme elles viennent : commencez avec la liste qui est ici, et n'ajoutez d'autres trucs que lorsque ça correspond à un besoin pour vous !
 
-+++ {"tags": ["level_advanced"], "heading_collapsed": true}
++++ {"tags": ["level_advanced"]}
 
 #### Packager un point d'entrée
 
-+++ {"tags": ["level_advanced"], "hidden": true}
++++ {"tags": ["level_advanced"]}
 
 Assez fréquemment on package des **librairies**; dans ce cas on se soucie d'installer uniquement des modules Python.
 
@@ -554,11 +559,11 @@ Voici les différents codes; le détail de la classe elle-même n'est pas pertin
 
 * la classe `Apssh` qui fait le travail se trouve [ dans un module usuel, ici `apssh.py`](https://github.com/parmentelat/apssh/blob/a97cccd8eb6286a81c68b3c6953fce8a643fe8e9/apssh/apssh.py).
 
-+++ {"tags": ["level_advanced"], "heading_collapsed": true}
++++ {"tags": ["level_advanced"]}
 
 ### Publier sur PyPI
 
-+++ {"tags": ["level_advanced"], "hidden": true}
++++ {"tags": ["level_advanced"]}
 
 Pour publier votre application sur PyPI, rien de plus simple :
 

@@ -1,31 +1,22 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
   cell_metadata_json: true
   encoding: '# -*- coding: utf-8 -*-'
-  notebook_metadata_filter: all,-language_info
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.9.1
 kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: "m\xE9tro parisien"
-toc:
-  base_numbering: 1
-  nav_menu: {}
-  number_sections: true
-  sideBar: true
-  skip_h1_title: false
-  title_cell: Table of Contents
-  title_sidebar: Contents
-  toc_cell: false
-  toc_position: {}
-  toc_section_display: true
-  toc_window_display: false
 version: '1.0'
 ---
 
@@ -35,7 +26,7 @@ version: '1.0'
 
 <img src="media/metro-map.png" width="600px" />
 
-```{code-cell}
+```{code-cell} ipython3
 from pathlib import Path
 import numpy as np
 import pandas as pd
@@ -51,24 +42,24 @@ import pandas as pd
 
 on vous a préparé deux jeux de données qui décrivent le métro parisien
 
-```{code-cell}
+```{code-cell} ipython3
 # a few constants
 data = Path("data")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # load data
 stations  = pd.read_csv(data / "stations.txt", index_col="station_id")
 hops =      pd.read_csv(data / "hops.txt")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 stations.head()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 hops.head()
@@ -111,7 +102,7 @@ Il y a deux algorithmes standard pour parcourir un graphe à partir de l'un de s
 
 intuitivement, en partant de cet échantillon (ici un simple arbre) :
 
-```{code-cell}
+```{code-cell} ipython3
 from simpletree import tree
 
 tree
@@ -188,7 +179,7 @@ on va représenter le graphe avec plusieurs classes d'objet :
 
 voici pour commencer le code qu'on **aimerait pouvoir écrire**
 
-```{code-cell}
+```{code-cell} ipython3
 # on rappelle que stations et hops sont des dataframes
 # on peut itérer sur les lignes d'une dataframe avec iterrows()
 
@@ -253,7 +244,7 @@ def build_map(metro: Graph, show_labels=True):
 
 en ce qui concerne les algorithmes de parcours, compte tenu de ce qu'on a vu plus haut, le code qu'on va vouloir écrire aura besoin aussi d'itérer sur les voisins d'un noeud, et ressemblera schématiquement à ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 def scan(start_node, storage):
 
     storage.store(start_node)
@@ -332,7 +323,7 @@ et rappelez-vous, pour accéder à une dataframe on peut utiliser:
 
 du coup, voici comment utiliser les objets de type `Station`
 
-```{code-cell}
+```{code-cell} ipython3
 # le type Station correspond à une ligne
 # dans la dataframe chargée à partir de stations.txt
 # ce serait assez redondant d'avoir à se redéfinir un type pour cela
@@ -347,12 +338,12 @@ station_sample = stations.loc[2152]
 station_sample
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour accéder aux positions géographiques c'est simple
 station_sample.latitude
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # par contre pour accéder au station_id, qui sert d'index,
 # c'est différent
 try:
@@ -361,23 +352,23 @@ except Exception as exc:
     print(f"OOPS - {type(exc)} : {exc}")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # il faut utiliser l'attribut name (ça n'est pas très logique d'ailleurs !)
 station_sample.name
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 station_sample.name
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # quel est le type de cet objet
 type(station_sample)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # définissons un type pour les type hints
@@ -392,7 +383,7 @@ la première idée consisterait à garder dans un attribut `self.neighbours` un 
 
 mais il se trouve que dans `hops.txt` on nous donne aussi le numéro de la ligne de métro qui connecte deux stations, on va donc vouloir attacher à chaque lien ce numéro de ligne, et du coup un ensemble n'est sans doute pas ce qu'il y a de mieux...
 
-```{code-cell}
+```{code-cell} ipython3
 # version étudiant : à vous de compléter le code
 
 class Node:
@@ -441,7 +432,7 @@ class Node:
         return float(self.station['longitude'])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # version étudiant : à vous de compléter le code
 
 # NOTE : vous remarquerez qu'on a choisi de créer les arêtes
@@ -527,13 +518,13 @@ class Graph:
 
 maintenant on devrait pouvoir construire le graphe
 
-```{code-cell}
+```{code-cell} ipython3
 metro = build_graph(stations, hops)
 
 print(f"notre graphe a {len(metro)} stations et {metro.nb_edges()} liens")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # exercice: calculer le nombre de lignes
 # xxx nb_lines = ...
 lines = {line for node, neighbour, line in metro.iter_edges()}
@@ -550,7 +541,7 @@ on va utiliser la librairie `folium` pour afficher les cartes
 
 pas de code à écrire de votre part dans cette partie, mais vous pouvez prendre le temps de voir comment c'est fait
 
-```{code-cell}
+```{code-cell} ipython3
 import folium
 
 STATION_RADIUS = 100
@@ -562,7 +553,7 @@ STATION_COLOR = '#d22'
 
 ### les couleurs des lignes
 
-```{code-cell}
+```{code-cell} ipython3
 from nuancier import nuancier
 nuancier
 ```
@@ -571,24 +562,24 @@ nuancier
 
 pour mettre en évidence une station (un peu fastidieux en folium)
 
-```{code-cell}
+```{code-cell} ipython3
 from labelicon import label_icon
 ```
 
 ### Chatelet au centre de la carte
 
-```{code-cell}
+```{code-cell} ipython3
 chatelet_station_id = 2221
 chatelet_station = stations.loc[chatelet_station_id]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 map_center = [chatelet_station['latitude'], chatelet_station['longitude']]
 ```
 
 ### ma première carte en folium
 
-```{code-cell}
+```{code-cell} ipython3
 autre_station = stations.loc[2122]
 autre_position = [autre_station['latitude'], autre_station['longitude']]
 
@@ -602,7 +593,7 @@ On n'aura besoin que des classes suivantes
 * `folium.Circle`
 * `folium.PolyLine` pour tracer un trait
 
-```{code-cell}
+```{code-cell} ipython3
 map = folium.Map(location=map_center, zoom_start=13)
 
 folium.map.Marker(map_center, icon=label_icon('0')).add_to(map)
@@ -625,7 +616,7 @@ map
 
 Nous voulons visualiser les stations, et les lignes. En option (si `show_labels=True`), on affichera aussi l'attribut `label` des objets `Node` lorsqu'il est défini.
 
-```{code-cell}
+```{code-cell} ipython3
 def build_map(metro, show_labels=True):
 
     map = folium.Map(location=map_center, zoom_start=13)
@@ -654,7 +645,7 @@ def build_map(metro, show_labels=True):
 
 à ce stade si votre code pour `Node` et `Graph` est correct vous pouvez voir ici la carte du réseau avec la station Chatelet numérotée `0`
 
-```{code-cell}
+```{code-cell} ipython3
 # on met au moins un label pour voir l'effet
 metro.find_node_from_station_id(chatelet_station_id).label = '0'
 
@@ -683,7 +674,7 @@ nous avons simplement besoin dans les deux cas d'un objet `Storage` qui impléme
 
 ### FIFO / FILO
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 from collections import deque
@@ -704,7 +695,7 @@ class Fifo:
         return len(self.line)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 from collections import deque
@@ -725,7 +716,7 @@ class Filo:
         return len(self.line)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # pour vérifier
@@ -736,7 +727,7 @@ while fifo:
     print(f"retrieve → {fifo.retrieve()}")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # pour vérifier
@@ -749,7 +740,7 @@ while filo:
 
 ### parcours générique
 
-```{code-cell}
+```{code-cell} ipython3
 # avec nos spécifications, on peut écrire le parcours
 # en utilisant principalement
 # for neighbour, line in node.iter_neighbours():
@@ -785,14 +776,14 @@ def scan(start_node, storage):
 
 ### les deux parcours spécifiques
 
-```{code-cell}
+```{code-cell} ipython3
 def DFS(metro, station):
     node = metro.find_node_from_station_id(station.name)
     storage = Filo()
     yield from scan(node, storage)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 def BFS(metro, station):
     node = metro.find_node_from_station_id(station.name)
     storage = Fifo()
@@ -809,7 +800,7 @@ pour illustrer les deux parcours, on va simplement utiliser l'attribut `label` d
 
 #### depth-first scan
 
-```{code-cell}
+```{code-cell} ipython3
 # labelling all stations according to a DFS scan
 for index, node in enumerate(DFS(metro, chatelet_station)):
     node.label = str(index)
@@ -819,7 +810,7 @@ build_map(metro)
 
 #### breadth-first scan
 
-```{code-cell}
+```{code-cell} ipython3
 # same with a BFS
 for index, node in enumerate(BFS(metro, chatelet_station)):
     node.label = str(index)

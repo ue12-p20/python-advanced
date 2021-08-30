@@ -1,14 +1,19 @@
 ---
 jupytext:
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.11.0
 kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 ---
 
 # Tracés de champs de vitesses
@@ -86,7 +91,7 @@ plt.show()
 ```
 
 ## Passage en interactif
-Comme première partie d'exercice, vous pouvez passer le tracé de ce graphe en interactif. Puisque l'on trace des vecteurs normalisés, vous ne verrez pas d'impact de la valeur de $V0$. 
+Comme première partie d'exercice, vous pouvez passer le tracé de ce graphe en interactif. Puisque l'on trace des vecteurs normalisés, vous ne verrez pas d'impact de la valeur de $V0$.
 
 ```{code-cell} ipython3
 from ipywidgets import interact, FloatSlider
@@ -110,7 +115,7 @@ interact(function, V0=Vslider, alpha=alphaslider)
 
 ## Implémentations des potentiels
 
-L'objectif du TP est de construire des interfaces de visualisations de champs de vitesses, obtenus en superposant plusieurs champs issus de différents potentiels. La première étape est d'implémenter les différents potentiels. Suivez l'exemple du potentiel `flow` ci-dessous. 
+L'objectif du TP est de construire des interfaces de visualisations de champs de vitesses, obtenus en superposant plusieurs champs issus de différents potentiels. La première étape est d'implémenter les différents potentiels. Suivez l'exemple du potentiel `flow` ci-dessous.
 
 ```{code-cell} ipython3
 def flow(x, y, V0, alpha):
@@ -182,7 +187,7 @@ def doublet(x, y, eps=1., K=1., hx=0., hy=0.):
 ## Une usine à  *dashboard* 
 Dans cette première partie, on cherche à créer automatiquement un *dashboard* seulement à partir d'une chaîne de caractères. Par example, on souhaite qu'en tapant `make_dashboard("vortex")` apparaisse une figure avec le champ de vitesses d'un tourbillon et les sliders associés. 
 
-**Note :** Il serait judicieux de stocker dans le conteneur le mieux adapté une référence vers la fonction permettant de calculer les composantes du champ des vitesses ainsi que toutes les données nécessaires sur les paramètres du modèle.  
+**Note :** Il serait judicieux de stocker dans le conteneur le mieux adapté une référence vers la fonction permettant de calculer les composantes du champ des vitesses ainsi que toutes les données nécessaires sur les paramètres du modèle.
 
 ```{code-cell} ipython3
 from ipywidgets import Dropdown
@@ -245,7 +250,7 @@ make_dashboard("flow")
 
 ## Superposition de champs
 
-Imaginons maintenant que l'on veuille superposer plusieurs potentiels pour créer des champs plus complexes. On peut dans un premier temps utiliser une approche fonctionnelle comme précédemment. Cependant, puisqu'il faut stocker un grand nombre de données (quels sont les arguments de quel potentiel, etc...) écrire une classe permettrait sûrement d'y voir plus clair. 
+Imaginons maintenant que l'on veuille superposer plusieurs potentiels pour créer des champs plus complexes. On peut dans un premier temps utiliser une approche fonctionnelle comme précédemment. Cependant, puisqu'il faut stocker un grand nombre de données (quels sont les arguments de quel potentiel, etc...) écrire une classe permettrait sûrement d'y voir plus clair.
 
 ```{code-cell} ipython3
 from ipywidgets import Label, HBox, VBox, interactive_output

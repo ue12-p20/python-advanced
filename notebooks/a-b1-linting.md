@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 nbhosting:
   title: linting
 ---
@@ -60,7 +65,7 @@ Si vous ouvrez maintenant un fichier Python (au pif de votre évaluation du S1) 
 
 `pylint` peut aussi être utilisé en ligne de commande comme suit :
 
-```{code-cell}
+```{code-cell} ipython3
 ! pylint fibo.py
 ```
 

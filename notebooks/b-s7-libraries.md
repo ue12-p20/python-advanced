@@ -1,7 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -9,6 +11,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  name: python
+  pygments_lexer: ipython3
 nbhosting:
   title: les librairies
 ---
@@ -45,7 +50,7 @@ Le contenu de la `asyncio` est assez hétérogène en fait, car on y trouve
 
 +++
 
-## autres 
+## autres
 
 +++
 
@@ -127,7 +132,7 @@ await hurd2(12, 8)
 je tire cet exemple de la doc Python ici
 https://docs.python.org/3/library/asyncio-stream.html#tcp-echo-client-using-streams
 
-ça devrait résonner par rapport au dernier cours de Basile Marchand... 
+ça devrait résonner par rapport au dernier cours de Basile Marchand...
 
 +++
 
