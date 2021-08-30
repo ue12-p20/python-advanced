@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: algos de graphe
+nbhosting: 
+  title: algos de graphe
 rise:
   autolaunch: true
   slideNumber: c/t

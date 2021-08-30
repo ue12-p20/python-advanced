@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: 'TP: les reines'
+nbhosting: 
+  title: 'TP: les reines'
 ---
 
 # le problème des reines

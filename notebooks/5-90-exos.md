@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: exos classes
+nbhosting: 
+  title: exos classes
 rise:
   autolaunch: true
   slideNumber: c/t

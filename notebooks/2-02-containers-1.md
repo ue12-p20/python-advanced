@@ -15,7 +15,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: containers (1/2)
+nbhosting: 
+  title: containers (1/2)
 rise:
   autolaunch: true
   slideNumber: c/t

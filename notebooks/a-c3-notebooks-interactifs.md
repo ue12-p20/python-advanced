@@ -30,7 +30,8 @@ livereveal:
   theme: simple
   transition: fade
   width: 100%
-notebookname: Notebooks interactifs
+nbhosting: 
+  title: Notebooks interactifs
 version: '3.0'
 ---
 

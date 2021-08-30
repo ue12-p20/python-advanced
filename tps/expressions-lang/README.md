@@ -15,7 +15,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: 'TP: langage d''expressions'
+nbhosting: 
+  title: 'TP: langage d''expressions'
 ---
 
 # un petit langage d'expressions

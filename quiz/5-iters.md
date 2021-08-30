@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: "quiz it\xE9rations"
+nbhosting: 
+  title: "quiz it\xE9rations"
 version: '1.0'
 ---
 

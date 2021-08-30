@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: des jeux en Python
+nbhosting: 
+  title: des jeux en Python
 rise:
   autolaunch: true
   slideNumber: c/t

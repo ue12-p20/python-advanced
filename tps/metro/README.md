@@ -16,7 +16,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: "m\xE9tro parisien"
+nbhosting: 
+  title: "m\xE9tro parisien"
 version: '1.0'
 ---
 

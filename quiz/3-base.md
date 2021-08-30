@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: quiz types de base
+nbhosting: 
+  title: quiz types de base
 version: '1.0'
 ---
 

@@ -15,7 +15,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: "\xE9crire un lanceur"
+nbhosting: 
+  title: "\xE9crire un lanceur"
 ---
 
 +++ {"slideshow": {"slide_type": "-"}, "tags": []}

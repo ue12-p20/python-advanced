@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: quiz fonctions
+nbhosting: 
+  title: quiz fonctions
 version: '1.0'
 ---
 

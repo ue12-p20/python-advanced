@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: intro cours S2/1
+nbhosting: 
+  title: intro cours S2/1
 rise:
   autolaunch: true
   slideNumber: c/t

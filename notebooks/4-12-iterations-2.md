@@ -15,7 +15,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: "les it\xE9rations - suite"
+nbhosting: 
+  title: "les it\xE9rations - suite"
 rise:
   autolaunch: true
   slideNumber: c/t

@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: quiz tables de hash
+nbhosting: 
+  title: quiz tables de hash
 version: '1.0'
 ---
 

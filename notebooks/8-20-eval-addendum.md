@@ -15,7 +15,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: imports et organisation du code
+nbhosting: 
+  title: imports et organisation du code
 ---
 
 # rendus Python avancé - addendum

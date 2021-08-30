@@ -14,7 +14,8 @@ kernelspec:
 language_info:
   name: python
   pygments_lexer: ipython3
-notebookname: quiz regexps et generateurs
+nbhosting: 
+  title: quiz regexps et generateurs
 version: '1.0'
 ---
 
